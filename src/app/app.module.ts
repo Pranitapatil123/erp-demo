@@ -39,7 +39,7 @@ import { AddPageComponent } from "./add-page/add-page.component";
 import { StudentAttendanceComponent } from "./Attendance/student-attendance/student-attendance.component";
 import { AttendanceByDateComponent } from "./Attendance/attendance-by-date/attendance-by-date.component";
 import { ApproveLeaveComponent } from "./Attendance/approve-leave/approve-leave.component";
-import { AddExamComponent } from "./Examination/add-exam/add-exam.component";
+//import { AddExamComponent } from "./Examination/add-exam/add-exam.component";
 import { CreateTtComponent } from "./create-tt/create-tt.component";
 import { ComplainttypeComponent } from './Frontoffice/setup/complainttype/complainttype.component';
 import { VisitorsPurposeComponent } from './Frontoffice/setup/visitors-purpose/visitors-purpose.component';
@@ -50,6 +50,9 @@ import { FeeCollectionModule } from './feecollection/feecollection.module';
 import { LibraryModule } from './Library/Library.module';
 import { IncomeModule } from './income/income.module';
 import { HumanResourceModule } from './human_resource/HumanResourceModule';
+import { CommonModule } from '@angular/common';
+//import { GeneralsettingComponent } from './generalsetting/generalsetting.component';
+
 
 
 
@@ -86,16 +89,19 @@ import { HumanResourceModule } from './human_resource/HumanResourceModule';
     StudentAttendanceComponent,
     AttendanceByDateComponent,
     ApproveLeaveComponent,
-    AddExamComponent,
+    //AddExamComponent,
     CreateTtComponent,
     VisitorsPurposeComponent,
     SourceComponent,
     ReferenceComponent,
     ComplainttypeComponent,
+    //GeneralsettingComponent,
+    
     
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     HttpClientModule,
     CertificateModule,

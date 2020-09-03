@@ -1,111 +1,181 @@
 &nbsp;
-<div class="row gutters-20">
+<div class="row">
+    
 <!-- Add Hostel Area Start Here -->
-<div class="col-8-xxxl col-12">
-    <div class="card height-auto">
-        <div class="card-body">
-            <div class="heading-layout1">
-                <div class="item-title">
-                    <h4>Send Mail</h4>
-                </div>
-                
-            </div>
-            <form class="new-added-form" >
-                <div class="row" style=" margin-top: -25px;">
-                    <div class="col-8 col-lg-8 col-12 form-group">
-                        <label for="inp" class="inp" style="float: left;">
-                            <input type="text" class="form-control" id="inp" placeholder="&nbsp;" style="width: 650px;">
-                            <span class="label"> Title</span>
-                            <span class="focus-bg"></span>
-                          </label> 
-                    </div>
-                    <div class="col-4 col-lg-4 col-12 form-group"> 
-                        <label style="font-size: smaller;">Attachments </label>
-                        <input type="file" class="form-control-file">
-                    </div>
-                    <div class="col-8 col-lg-8 col-12 form-group">  
-                        <label>Message </label>   
-                            <textarea type="text" class="form-control" style="height: 100px;">
-                            </textarea>                              
-                    </div>
-                    <div class="col-4 col-lg-4 col-12 form-group" style="float: left;">   
-                          <h6 style=" margin-bottom: 40px;">Message To Group</h6>
-                          <label><input type="checkbox"> Studnet <input type="checkbox"> Admin ch&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox"> Admin  </label>
-                          <label><input type="checkbox"> Parents <input type="checkbox"> Super Admin&nbsp;<input type="checkbox"> Librarian </label>
-                          <label><input type="checkbox"> Teacher <input type="checkbox"> Receptionist&nbsp;<input type="checkbox"> Accountant</label>
-                    </div>
-                    <div class="col-4 col-lg-4 col-12 form-group" style="background-color: azure;">   
-                        <h6>Message To Individual</h6>
-                    <div class="row">
-                        <div class="col-4 col-lg-4 col-12 form-group">
-                        <label for="slt" class="slt" style="float: left;width: 100px;">
-                            <select  class="form-control" id="slt" placeholder="&nbsp;">
-                            <option selected >Select</option>
-                            <option value="1">Students</option>
-                            <option value="2">Guardians</option>
-                            <option value="3">Students-Guardians</option>
-                            <option value="3">Admin</option>
-                            <option value="3">Teacher</option>
-                            <option value="3">Accountant</option>
-                            <option value="3">Librarian</option>
-                            <option value="3">Receptionist</option>
-                            <option value="3">Super Admin</option>
-                            </select>
-                            <span class="label"> To *</span>
-                            <span class="focus-bg"></span>
-                        </label>
-                        </div>
-                         <div class="col-6 col-lg-6 col-12 form-group">
-                        <label for="inp" class="inp" >
-                            <input type="text" class="form-control" id="inp" placeholder="&nbsp;" style="width: 150px;float: right;">
-                            <span class="label">Name</span>
-                            <span class="focus-bg"></span>
-                          </label>
-                        </div> 
-                        <div class="col-2 col-lg-1 col-12 form-group">
-                          <button type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark" style=" padding:10px 10px 10px 10px; float:right;">Add</button>
-                        </div>
-                    </div>
-                        <div class="col-12 col-lg-12 col-12 form-group"style=" margin-top: -25px;">
-                            <label for="inp" class="inp" >
-                                <input type="text" class="form-control" id="inp" placeholder="&nbsp;" style="width: 250px;">
-                                <span class="label">Search</span>
-                                <span class="focus-bg"></span>
-                              </label>
-                        </div> 
-                    </div>
-                
-                    <div class="col-4 col-lg-4 col-12 form-group" >
-                        <h6>Message To Class</h6>
-                        <div class="col-12 col-lg-12 col-12 form-group">
-                            <label for="slt" class="slt" style="float: left;width: 200px;">
-                                <select  class="form-control" id="slt" placeholder="&nbsp;">
-                                <option selected >Select</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                </select>
-                                <span class="label"> To *</span>
-                                <span class="focus-bg"></span>
-                            </label>     
-                        </div>
-                    </div>
-
-                    <div class="col-4 col-lg-4 col-12 form-group" >
-                        <h6 style="margin-bottom: 10px;">Todays Birthday</h6>
-                        <textarea name="" id="" cols="25" rows="3"></textarea>
-                    </div>
-                
-                    <div class="col-12 form-group mg-t-8">
-                        <button type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark" style="float: right;">Send Message</button>
-                    
-                    </div>
-
-
-                </div>
-            </form>
+<div class="card height-auto">
+    <div class="card-body">
+      <div class="heading-layout1">
+        <div class="item-title">
+          <h4>Send Email</h4>
         </div>
+        <br>
+        <br>
+  
+      </div>
+      <form class="new-added-form">
+        <div class="row" style=" margin-top: -30px;">
+            <div class="col-8 col-lg-8 col-12 form-group">
+            <label for="inp" class="inp" style="float: left;">
+              <input type="text" class="form-control" id="inp" placeholder="&nbsp;" style="width: 650px;">
+              <span class="label"> Title</span>
+              <span class="focus-bg"></span>
+            </label>
+        </div>    
+
+            
+          <div class="col-8 col-lg-8 col-12 form-group">
+            <label style="font-size:medium;">Attachment </label><br><br>
+           <input type="file" class="form-control-file" placeholder="Attachment" name="Attachment" >
+          </div>
+          <br>
+          
+  
+          <div class="col-8 col-lg-8 col-12 form-group">
+            <label style="font-size:medium;">Message</label>
+            <textarea type="text" class="form-control" style="height: 350px;">
+                      </textarea>
+          </div>
+          
+          
+    
+          
+
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+        
+         
+        <div class="col-3 col-lg-4 col-12 form-group">
+            <!--<label for="dtp" class="dtp">
+              <input type="date" id="dtp" placeholder="&nbsp;" name="admission">
+              <span class="label"> Notice Date *</span>
+              <span class="focus-bg"></span>
+            </label>-->
+            <div class="card height-auto">
+                <div class="card-body">
+                  <div class="custom-tab">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item"><a class="nav-link active" href="#group" data-toggle="tab" aria-selected="true">Group</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#individual" data-toggle="tab" aria-selected="true">Individual</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#class" data-toggle="tab" aria-selected="true">Class</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#todaysbirthday" data-toggle="tab" aria-selected="true">Today's Birthday</a></li>
+                       <!---- <li class="nav-item"><a class="nav-link" href="#timelineh" data-toggle="tab" aria-selected="true">Timeline</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#"><i style="color: rgb(81, 81, 81);" class="fas fa-pencil-alt"></i></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-key text-dark-pastel-green"></i></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-thumbs-down text-orange-red"></i></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#"><i style="color: black;" class="fas fa-ellipsis-v"></i></a></li>-->
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="group" role="tabpanel">
+                            <br>
+                            <h6>Message To</h6>
+                            <br>    
+                            <label><input type="checkbox"> Student</label>
+                            <label><input type="checkbox"> Parents</label>
+                            <label><input type="checkbox"> Teacher</label>
+                            <label><input type="checkbox"> Admin </label>
+                            <label><input type="checkbox"> Accountant</label>
+                            <label><input type="checkbox"> Librarian </label>
+                            <label><input type="checkbox"> Super Admin</label>
+                            <label><input type="checkbox"> Receptionist</label>       
+                              
+
+                                
+
+                         </div>
+
+                            <div class="tab-pane fade" id="individual" role="tabpanel">
+                                <br>
+                                <h6>Message To</h6>
+                                    <label for="slt" class="slt">
+                                        
+                                        <select  class="form-control" id="slt" placeholder="&nbsp;">
+                                        <option selected >Select</option>
+                                        <option value="1">Students</option>
+                                        <option value="2">Guardians</option>
+                                        <option value="3">Students-Guardians</option>
+                                        <option value="3">Admin</option>
+                                        <option value="3">Teacher</option>
+                                        <option value="3">Accountant</option>
+                                        <option value="3">Librarian</option>
+                                        <option value="3">Receptionist</option>
+                                        <option value="3">Super Admin</option>
+                                        </select>
+                                        <span class="label">Select*</span>
+                                        
+                                    </label>             
+                                    <textarea type="text" class="form-control" style="height: 150px;">
+                                    </textarea>
+                            </div>
+                            
+                            <div class="tab-pane fade" id="class" role="tabpanel">
+                                <br>
+                                <h6>Message To</h6>
+                                    <label for="slt" class="slt">
+                                        
+                                        <select  class="form-control" id="slt" placeholder="&nbsp;">
+                                        <option selected >Select</option>
+                                        <option value="1">First</option>
+                                        <option value="2">Second</option>
+                                        <option value="3">Third</option>
+                                        </select>
+                                        <span class="label">Select*</span>
+                                        
+                                    </label>             
+                                    <textarea type="text" class="form-control" style="height: 150px;">
+                                    </textarea>
+                            </div>
+
+                            <div class="tab-pane fade" id="todaysbirthday" role="tabpanel">
+                                
+                                    <label style="font-size:medium;">Message To</label>
+                                    <textarea type="text" class="form-control" style="height: 150px;">
+                                              </textarea>
+                                  
+                            </div>
+
+                           
+                    </div>
+                </div>
+                </div>
+                </div>
+                </div>
+         </div>
+                
+  
+          
+
+         
+  
+  
+          <!--<div class="col-3 col-lg-4 col-12 form-group">
+            <label for="dtp" class="dtp">
+              <input type="date" id="dtp" placeholder="&nbsp;" name="admission">
+              <span class="label"> Publish On *</span>
+              <span class="focus-bg"></span>
+            </label>
+           
+          </div>-->
+        
+  
+  
+       
+        <button type="submit" style="float: right;" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark"
+          autocomplete="off">
+          Send</button>
+  
+      </form>
     </div>
-</div>
+  
+  </div>
 
 <!-- Add Hostel Area end Here -->
         

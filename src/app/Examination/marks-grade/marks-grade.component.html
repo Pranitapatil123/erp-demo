@@ -9,18 +9,181 @@
   </ul>
 </div>
 <!-- upload Area Start Here -->
+<div class="row gutters-20">
+  <div class="col-xl-4 col-6">
+    <div class="card height-auto">
+      <div class="card-body">
+        <div class="heading-layout1">
+          <div class="item-title">
+            <h5>Add Grade</h5>
+          </div>
+        </div>
+        <form class="new-added-form">
+          <div class="col-xl-12 col-lg-6 col-12 form-group">
+            <label for="inp" class="inp">
+              <input type="text"  name="examType" class="form-control" id="inp" placeholder="&nbsp;"
+                [(ngModel)]="gradeDto.examType" [value]="gradeDto.examType">
+              <span class="label">Exam Type</span>
+              <span class="focus-bg"></span>
+            </label>
+          </div>
 
+          <div class="col-xl-12 col-lg-6 col-12 form-group">
+            <label for="inp" class="inp">
+              <input type="text"  name="name" class="form-control" id="inp" placeholder="&nbsp;"
+                [(ngModel)]="gradeDto.name" [value]="gradeDto.name">
+              <span class="label">Grade Name</span>
+              <span class="focus-bg"></span>
+            </label>
+          </div>
 
+          <div class="col-xl-12 col-lg-6 col-12 form-group">
+            <label for="inp" class="inp">
+              <input type="text"  name="markFrom" class="form-control" id="inp" placeholder="&nbsp;"
+                [(ngModel)]="gradeDto.markFrom" [value]="gradeDto.markFrom">
+              <span class="label">Percent From</span>
+              <span class="focus-bg"></span>
+            </label>
+          </div>
+
+          <div class="col-xl-12 col-lg-6 col-12 form-group">
+            <label for="inp" class="inp">
+              <input type="text"  name="markUpto" class="form-control" id="inp" placeholder="&nbsp;"
+                [(ngModel)]="gradeDto.markUpto" [value]="gradeDto.markUpto">
+              <span class="label">Percent Upto</span>
+              <span class="focus-bg"></span>
+            </label>
+          </div>
+
+          <div class="col-xl-12 col-lg-6 col-12 form-group">
+            <label for="inp" class="inp">
+              <input type="text"  name="point" class="form-control" id="inp" placeholder="&nbsp;"
+                [(ngModel)]="gradeDto.point" [value]="gradeDto.point">
+              <span class="label">Grade Point</span>
+              <span class="focus-bg"></span>
+            </label>
+          </div>
+
+          <div class="col-xl-12 col-lg-6 col-12 form-group">
+            <label for="inp" class="inp">
+              <input type="text"  name="description" class="form-control" id="inp" placeholder="&nbsp;"
+                [(ngModel)]="gradeDto.description" [value]="gradeDto.description">
+              <span class="label">Description</span>
+              <span class="focus-bg"></span>
+            </label>
+          </div>
+
+          <div class="col-12 form-group mg-t-8">
+            <button *ngIf="!this.isUpdate" (click)="addmarksgrade()" type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Save</button>
+            <button *ngIf="this.isUpdate" (click)="clearData()" type="reset" class="btn-fill-lg bg-blue-dark btn-hover-yellow">Reset</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!--second code
+
+  <div class="row gutters-20">
+
+    <div class="col-xl-4 col-6">
+    <div class="card height-auto">
+        <div class="card-body">
+            <div class="heading-layout1">
+                <div class="item-title">
+                    <h3>Add Grade</h3>
+                </div>
+              </div>
+            <form class="new-added-form">
+                   
+                    <div class="col-xl-12 col-lg-6 col-12 form-group">
+                        <label for="inp" class="inp">
+                            <input type="text" #examType="ngModel" name="examType" class="form-control" id="inp" placeholder="&nbsp;"
+                            [(ngModel)]="gradeDto.examType" required>
+                            <span class="label">Exam Type *</span>
+                            <span class="focus-bg"></span>
+                        </label>
+                        <div
+                        class="alert alert-danger"
+                        *ngIf="schoolName.touched && !schoolName.valid">
+                         Please Enter Exam Type
+                         </div>
+                    </div>
+
+                    <div class="col-xl-12 col-lg-6 col-12 form-group">
+                        <label for="inp" class="inp">
+                            <input type="text" #name="ngModel" name="name" class="form-control" id="inp" placeholder="&nbsp;"
+                            [(ngModel)]="gradeDto.name" required>
+                            <span class="label">Grade Name*</span>
+                            <span class="focus-bg"></span>
+                        </label>
+                        <div
+                        class="alert alert-danger"
+                        *ngIf="title.touched && !title.valid">
+                         Please Enter Grade Name
+                         </div>
+                    </div>
+
+                    <div class="col-xl-12 col-lg-6 col-12 form-group">
+                        <label for="inp" class="inp">
+                            <input type="text" #markFrom="ngModel" name="markFrom" class="form-control" id="inp" placeholder="&nbsp;"
+                            [(ngModel)]="gradeDto.markFrom" required>
+                            <span class="label">Percent From*</span>
+                            <span class="focus-bg"></span>
+                        </label>
+                    </div>
+
+                    <div class="col-xl-12 col-lg-6 col-12 form-group" row="3">
+                        <label for="inp" class="inp">
+                            <input type="text"  #markUpto="ngModel" name="markUpto" class="form-control" id="inp" placeholder="&nbsp;"
+                            [(ngModel)]="gradeDto.markUpto" required>
+                            <span class="label">Percent Upto*</span>
+                            <span class="focus-bg"></span>
+                        </label>
+                    </div>
+
+                    <div class="col-xl-12 col-lg-6 col-12 form-group">
+                      <label for="inp" class="inp">
+                          <input type="text" #point="ngModel" name="point" class="form-control" id="inp" placeholder="&nbsp;"
+                          [(ngModel)]="gradeDto.point" required>
+                          <span class="label">Grade Point*</span>
+                          <span class="focus-bg"></span>
+                      </label>
+                  </div>
+
+                  <div class="col-xl-12 col-lg-6 col-12 form-group">
+                    <label for="inp" class="inp">
+                        <input type="text" #description="ngModel" name="description" class="form-control" id="inp" placeholder="&nbsp;"
+                        [(ngModel)]="gradeDto.description" required>
+                        <span class="label">Description*</span>
+                        <span class="focus-bg"></span>
+                    </label>
+                </div>
+                    
+    
+                    
+                    <div class="col-12 form-group mg-t-8">
+                        <button *ngIf="!this.isUpdate" (click)="addmarksgrade()" type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Save</button>
+                        <button *ngIf="this.isUpdate" (click)="clearData()" type="reset" class="btn-fill-lg bg-blue-dark btn-hover-yellow">Reset</button>
+                    </div>
+                
+            </form>
+        </div>
+    </div>
+    </div>-->
+  
+<!--List-->
+<div class="col-xl-8 col-6">
 <div class="card height-auto">
   <div class="card-body">
     <div class="heading-layout1">
       <div class="item-title">
         <h3>Marks Grade List</h3>
       </div>
-      <div class="dropdown">
+     <!---- <div class="dropdown">
         <button style="  background-color: #000066; position: relative; top:0; right: 10; float: right;" type="button"
           class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">+ Add</button>
-      </div>
+      </div>-->
     </div>
     <div class="table-responsive">
       <table id="example" class="table display data-table text-nowrap cell-border">
@@ -28,61 +191,22 @@
           <tr>
             <th>Exam Type</th>
             <th>Grade Name</th>
-            <th>Percent From/upto </th>
+            <th>Percent From</th>
+            <th>Percent Upto</th>
             <th>Grade Point</th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>General Purpose(Pass/Fail)</td>
-            <td>10</td>
-            <td>Grade exam</td>
-            <td></td>
-            <td>
-              <a href="#"><i class="fas fa-eye"></i>&nbsp;</a>
-              <a href="#"><i class="fas fa-plus"></i>&nbsp;</a>
-              <a href="#"><i class="fas fa-pen-alt text-orange-peel"></i>&nbsp;</a>
-              <a href="#"><i class="fas fa-times text-orange-red"></i>&nbsp;</a>
-            </td>
-          </tr>
-          <tr>
-            <td>School Based Grading System</td>
-            <td>10</td>
-            <td>Grade exam</td>
-            <td></td>
-
-            <td>
-              <a href="#"><i class="fas fa-eye"></i>&nbsp;</a>
-              <a href="#"><i class="fas fa-plus"></i>&nbsp;</a>
-              <a href="#"><i class="fas fa-pen-alt text-orange-peel"></i>&nbsp;</a>
-              <a href="#"><i class="fas fa-times text-orange-red"></i>&nbsp;</a>
-            </td>
-          </tr>
-          <tr>
-            <td>GPA Grading System</td>
-            <td>10</td>
-            <td>Grade exam</td>
-            <td></td>
-
-            <td>
-              <a href="#"><i class="fas fa-eye"></i>&nbsp;</a>
-              <a href="#"><i class="fas fa-plus"></i>&nbsp;</a>
-              <a href="#"><i class="fas fa-pen-alt text-orange-peel"></i>&nbsp;</a>
-              <a href="#"><i class="fas fa-times text-orange-red"></i>&nbsp;</a>
-            </td>
-          </tr>
-          <tr>
-            <td>Collage Based Grading System</td>
-            <td>10</td>
-            <td>Grade exam</td>
-            <td></td>
-
-            <td>
-              <a href="#"><i class="fas fa-eye"></i>&nbsp;</a>
-              <a href="#"><i class="fas fa-plus"></i>&nbsp;</a>
-              <a href="#"><i class="fas fa-pen-alt text-orange-peel"></i>&nbsp;</a>
-              <a href="#"><i class="fas fa-times text-orange-red"></i>&nbsp;</a>
+          <tr *ngFor="let grade of grades">
+            <td>{{grade.examType}}</td>
+            <td>{{grade.name}}</td>
+            <td>{{grade.markFrom}}</td>
+            <td>{{grade.markUpto}}</td>
+            
+            <td>{{grade.point}}</td>
+            <td><a (click)="setUpdateFileds(grade.id)"><i class="fas fa-pen-alt text-orange-peel"></i>&nbsp;</a>
+              <a (click)="delete(grade.id)"><i class="fas fa-times text-orange-red"></i>&nbsp;</a>
             </td>
           </tr>
 
@@ -94,13 +218,13 @@
 </div>
 
 
-<!-- upload Area End Here -->
-<div class="container">
+<!-- upload Area End Here 
+<div class="container">-->
 
-  <!-- Modal -->
+  <!-- Modal 
   <div id="myModal" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-      <!-- Modal content-->
+    <div class="modal-dialog">-->
+      <!-- Modal content
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -169,4 +293,6 @@
       </div>
     </div>
   </div>
-</div>
+</div>-->
+
+

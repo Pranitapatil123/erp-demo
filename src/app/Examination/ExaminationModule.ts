@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from "@angular/forms";
+import { ReactiveFormsModule } from "@angular/forms";
+import { ExaminationRoutingModule } from './Examination-routing.module';
 import { ExamGroupComponent } from './exam-group/exam-group.component';
 import { ExamScheduleComponent } from './exam-schedule/exam-schedule.component';
 import { ExamResultComponent } from './exam-result/exam-result.component';
@@ -14,9 +17,11 @@ import { AddExamComponent } from './add-exam/add-exam.component';
 
 @NgModule({
   declarations: [ExamGroupComponent,ExamScheduleComponent,ExamResultComponent,DesignMarksheetComponent,
-    DesignAdmitCardComponent,PrintMarksheetComponent,PrintAdmitCardComponent,MarksGradeComponent, AddExamComponent],
+    DesignAdmitCardComponent,PrintMarksheetComponent,PrintAdmitCardComponent,MarksGradeComponent],
   imports: [
-    CommonModule
-  ]
+    CommonModule,
+    ExaminationRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,]
 })
 export class ExaminationModule { }

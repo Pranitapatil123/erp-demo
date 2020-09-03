@@ -1,4 +1,4 @@
-    <!-- Breadcubs Area Start Here -->
+<!-- Breadcubs Area Start Here -->
     <div class="breadcrumbs-area">
         <ul>
             <li>
@@ -23,8 +23,7 @@
             <form class="new-added-form">
                     <div class="col-xl-12 col-lg-6 col-12 form-group">
                         <label style="font-size: small;">Background Image </label>
-                        <input type="file" class="form-control-file" name="background" placeholder="Background Image"
-                        [(ngModel)]="idCardDto.background" >
+                        
                     </div><br>
                     <div class="col-xl-12 col-lg-6 col-12 form-group">
                         <label style="font-size: smaller;">Logo </label>
@@ -36,36 +35,25 @@
                     </div><br>
                     <div class="col-xl-12 col-lg-6 col-12 form-group">
                         <label for="inp" class="inp">
-                            <input type="text" #schoolName="ngModel" name="schoolname" class="form-control" id="inp" placeholder="&nbsp;"
-                            [(ngModel)]="idCardDto.schoolName" required>
+                           
                             <span class="label">School Name *</span>
                             <span class="focus-bg"></span>
                         </label>
-                        <div
-                        class="alert alert-danger"
-                        *ngIf="schoolName.touched && !schoolName.valid">
-                         Please Enter School Name
-                         </div>
+                        
                     </div>
 
                     <div class="col-xl-12 col-lg-6 col-12 form-group">
                         <label for="inp" class="inp">
-                            <input type="text" #title="ngModel" name="title" class="form-control" id="inp" placeholder="&nbsp;"
-                            [(ngModel)]="idCardDto.title" required>
+                           
                             <span class="label">ID Card Title*</span>
                             <span class="focus-bg"></span>
                         </label>
-                        <div
-                        class="alert alert-danger"
-                        *ngIf="title.touched && !title.valid">
-                         Please Enter ID Card Title
-                         </div>
+                    
                     </div>
 
                     <div class="col-xl-12 col-lg-6 col-12 form-group">
                         <label for="inp" class="inp">
-                            <input type="text" #headerColor="ngModel" name="headerColor" class="form-control" id="inp" placeholder="&nbsp;"
-                            [(ngModel)]="idCardDto.headerColor" required>
+                           
                             <span class="label">Header Color *</span>
                             <span class="focus-bg"></span>
                         </label>
@@ -73,8 +61,7 @@
 
                     <div class="col-xl-12 col-lg-6 col-12 form-group" row="3">
                         <label for="inp" class="inp">
-                            <input type="text"  #schoolAddress="ngModel" name="schoolAddress" class="form-control" id="inp" placeholder="&nbsp;"
-                            [(ngModel)]="idCardDto.schoolAddress" required>
+                           
                             <span class="label">Address / Phone / Email</span>
                             <span class="focus-bg"></span>
                         </label>
@@ -127,10 +114,7 @@
                     </div>
     
                     
-                    <div class="col-12 form-group mg-t-8">
-                        <button *ngIf="!this.isUpdate" (click)="add()" type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Save</button>
-                        <button *ngIf="this.isUpdate" (click)="clearData()" type="reset" class="btn-fill-lg bg-blue-dark btn-hover-yellow">Reset</button>
-                    </div>
+                   
                 
             </form>
         </div>
@@ -153,24 +137,8 @@
 
                             <div class="table-responsive">
                                 <table id="example" class="table display data-table text-nowrap cell-border">
-                                    <thead>
-                                        <tr>
-                                            <th>Sr. No.</th>
-                                            <th>ID Card Title</th>
-                                          <th>Background Image</th>
-                                          <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr *ngFor="let studentid of studentids">
-                                            <td>{{studentid.id}}</td>
-                                            <td>{{studentid.title}}</td>
-                                            <td>{{studentid.background}}</td>
-                                            <td><a (click)="setUpdateFileds(studentid.id)"><i class="fas fa-pen-alt text-orange-peel"></i>&nbsp;</a>
-                                              <a (click)="delete(studentid.id)"><i class="fas fa-times text-orange-red"></i>&nbsp;</a>
-                                            </td>
-                                          </tr>
-                                    </tbody>
+                                   
+                                   
                                     
                                 </table>
                             </div>

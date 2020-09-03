@@ -3,16 +3,17 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class StudentidService {
+export class MarksGradeService {
 
   constructor(private http: HttpClient) { }
-  url = `http://yamistha.cloudjiffy.net/id-card/`;
+
+  url = `http://yamistha.cloudjiffy.net/grade/`;
   
-  save(idCardDto): any {
-    return this.http.post(this.url, idCardDto);
+  save(gradeDto): any {
+    return this.http.post(this.url, gradeDto);
   }
 
-  getList(): any {
+  getmarksgradeList(): any {
     return this.http.get(this.url);
   }
 
@@ -20,11 +21,12 @@ export class StudentidService {
     return this.http.delete(this.url + Id);
   }
 
-  update(idCardDto, Id): any {
-    return this.http.put(this.url + Id, idCardDto);
+  update(gradeDto, Id): any {
+    return this.http.put(this.url + Id, gradeDto);
   }
 
-  getById(Id): any {
+  getBymarksgradeId(Id): any {
     return this.http.get(this.url + Id);
   }
+
 }

@@ -7,21 +7,21 @@
         <li>Add Event</li>
     </ul>
   </div>
-<div class="card height-auto" style="padding: 0;">
+<div class="card height-auto " >
     <div class="row" style="margin-left: 15px;margin-bottom: 5px;">
     <div class="card-body col-xl-8 col-lg-12 col-12 form-group"  >
 
         <form class="new-added-form" >
             <div class="row">
-                <div class="col-xl-4 col-lg-6 col-12 form-group">
-                    <label for="inp" class="inp">
+                <div class="col-xl-8 col-lg-8 col-12 form-group">
+                    <label for="inp" class="inp" style="float:left;">
                         <input type="text"  class="form-control" id="inp" placeholder="&nbsp;">
                         <span class="label">Title*</span>
                         <span class="focus-bg"></span>
                     </label>
                  </div>
-                <div class="col-xl-4 col-lg-6 col-12 form-group">
-                    <label for="inp" class="inp">
+                 <div class="col-xl-8 col-lg-8 col-12 form-group">
+                    <label for="inp" class="inp" style="float:left;">
                         <input type="text"  class="form-control" id="inp" placeholder="&nbsp;">
                         <span class="label">Venue</span>
                         <span class="focus-bg"></span>
@@ -29,8 +29,8 @@
                  </div>
                        
                 
-                <div class="col-xl-4 col-lg-6 col-12 form-group">
-                    <label for="dtp" class="dtp">
+                <div class="col-xl-8 col-lg-8 col-12 form-group">
+                    <label for="dtp" class="dtp" style="float:left;">
                         <input type="date" id="dtp" placeholder="&nbsp;" name="admission" >
                         <span class="label">Start</span>
                         <span class="focus-bg"></span>
@@ -43,16 +43,27 @@
                             <span class="focus-bg"></span>
                           </label>
                     </div>
-                    <div class="col-xl-4 col-lg-6col-12 form-group">
-                        <label for="inp" class="inp">
-                          <input type="text" name="search" class="form-control" id="inp" placeholder="&nbsp;">
-                          <span class="label">Description *</span>
-                          <span class="focus-bg"></span>
+                    <div class="col-xl-8 col-lg-4 col-12 form-group">
+                        <label for="inp" class="inp" style="float:left;">
+                          <label style="font-size:medium;">Description</label>
+          <textarea type="text" class="form-control" style="height: 30px;">
+                    </textarea>
                       </label>
                       </div>
                       <div class="col-xl-4 col-lg-6 col-12 form-group">
                         <button _ngcontent-hsw-c96="" type="button" data-toggle="modal" data-target="#myModal" class="btn btn-info btn-lg" style="background-color: #000066; position: absolute;bottom: 7; right:10;">+ Add Media</button>
                     </div>
+            </div>
+            <hr>
+            <div class="row">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <h5>
+                    Gallery Images
+                </h5>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div class="col-xl-4 col-lg-6 col-12 form-group">
+                    <button _ngcontent-hsw-c96="" type="button" data-toggle="modal" data-target="#myModal" class="btn btn-info btn-lg" style="background-color: #000066; position: absolute;bottom: 7; right:10;">+ Add Images</button>
+                </div>
             </div>
         </form>
     </div>
@@ -69,28 +80,29 @@
 </div>
     
 
+
 <div class="card height-auto ">
     <div class="row" style="margin-left: 15px;margin-bottom: 5px;">
     <div class="card-body col-xl-8 col-lg-12 col-12 form-group">
         <h3>SEO detail</h3>
         <form class="new-added-form" >
             <div class="row">
-                <div class="col-xl-4 col-lg-6 col-12 form-group">
-                    <label for="inp" class="inp">
+                <div class="col-xl-8 col-lg-8 col-12 form-group">
+                    <label for="inp" class="inp"  style="float:left;">
                         <input type="text"  class="form-control" id="inp" placeholder="&nbsp;">
                         <span class="label">Meta Title</span>
                         <span class="focus-bg"></span>
                     </label>
                  </div>
-                 <div class="col-xl-4 col-lg-6 col-12 form-group">
-                    <label for="inp" class="inp">
+                 <div class="col-xl-8 col-lg-8 col-12 form-group">
+                    <label for="inp" class="inp"  style="float:left;">
                         <input type="text"  class="form-control" id="inp" placeholder="&nbsp;">
                         <span class="label">Meta Keyword</span>
                         <span class="focus-bg"></span>
                     </label>
                  </div>
-                 <div class="col-xl-4 col-lg-6 col-12 form-group">
-                    <label for="inp" class="inp">
+                 <div class="col-xl-8 col-lg-8 col-12 form-group">
+                    <label for="inp" class="inp"  style="float:left;">
                         <input type="text"  class="form-control" id="inp" placeholder="&nbsp;">
                         <span class="label">Meta Description</span>
                         <span class="focus-bg"></span>
@@ -102,16 +114,17 @@
     <div class="card-body col-xl-3 col-lg-6 col-6 form-group" style="box-sizing:border-box;margin-left: 15px;">
         <h3> Featured Images</h3>
         <div>
-            <div>
+        <div>
         <input _ngcontent-bpg-c88="" type="file" row="4" placeholder="" name="files[]" id="file" multiple="" autocomplete="off" class="form-control">
-         </div>
-            <div class="form-group">
-                <button type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark" style="position: absolute;bottom: 0;right: 0;margin-bottom: 5px;margin-right: 5px;">Save</button>
-            </div>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark" style="position: absolute;bottom: 0;right: 0;margin-bottom: 5px;margin-right: 5px;">Save</button>
     </div>
     </div>
 </div>
 </div>
+
+
 
 
 <!-- Modal -->
