@@ -3,6 +3,7 @@ import { DatatableService } from 'src/app/shared/datatableservice/datatable.serv
 import { FeesmasterService } from './feesmaster.service';
 import { FeestypeService } from 'src/app/feecollection/feestype/feestype.service'; 
 import { FeesGroupService } from 'src/app/feecollection/feesgroup/feesgroup.service';
+import { SessionsettingService } from 'src/app/system_setting/sesstion-setting/sessionsetting.service';
 
 @Component({
   selector: 'app-feesmaster',
@@ -11,7 +12,7 @@ import { FeesGroupService } from 'src/app/feecollection/feesgroup/feesgroup.serv
 })
 export class FeesmasterComponent implements OnInit {
 
-  url = `http://yamistha.cloudjiffy.net/fee-master/`;
+  url = `http://yamistha.cloudjiffy.net/feemaster/`;
 
   feemasters = [];
   requestDto = {
@@ -29,22 +30,26 @@ export class FeesmasterComponent implements OnInit {
   isUpdate: boolean = false;
   feesgroup: any;
   feetypes: any;
+  sessions: any;
+
   
   constructor(private datatableservice: DatatableService,
     private feemasterService: FeesmasterService,
-              
+                  private sessionsettingService: SessionsettingService,
+
               private feetypeservice: FeestypeService,
               private feegroupService: FeesGroupService) { }
 
   ngOnInit(): void {
-    this.getList();
+    this.getgroupList();
     this.gettypeList();
     this.getmasterList();
+    this.getsessionList();
 
 
   }
-  getList() {
-    this.feegroupService.getList().subscribe((res: any) => {
+  getgroupList() {
+    this.feegroupService.getgroupList().subscribe((res: any) => {
       var data = res['data'];
       this.feesgroup = data['content'];
       // console.log(this.sources);
@@ -62,15 +67,26 @@ export class FeesmasterComponent implements OnInit {
       console.error(err);
     });
   }
+  getsessionList() {
+    this.sessionsettingService.getsessionList().subscribe((res: any) => {
+      var data = res['data'];
+      this.sessions = data['content'];
+      //this.visitors = content.map((key) => ({ ...key }));
+      //console.log(this.visitors);
+    }, (err) => {
+      console.log('Error while fetching data');
+      console.error(err);
+    });
+  }
   getmasterList() {
     this.feemasterService.getmasterList().subscribe((res: any) => {
       var data = res['data'];
       var content = data['content'];
       this.feemasters = content.map((key) => ({ ...key }));
-      this.datatableservice.initTable('fee master');
+      this.datatableservice.initTable('Fees Master');
     }, (err) => {
       console.log('Error while fetching data');
-      console.error(err);
+      //console.error(err);
     });
   }
 
@@ -84,7 +100,7 @@ export class FeesmasterComponent implements OnInit {
       this.clearData();
     }, (err) => {
       console.log('Error While Saving');
-      console.error(err);
+      //console.error(err);
     });
   }
   getmasterById(masterId) {

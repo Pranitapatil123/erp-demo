@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 export class AssignService {
   constructor(private http: HttpClient) { }
 
-  url = `http://yamistha.cloudjiffy.net/vehicle route/`;
+  url = `http://yamistha.cloudjiffy.net/vehicle-route/`;
 
   save(vehicleRouteDto): any {
     return this.http.post(this.url, vehicleRouteDto);

@@ -47,9 +47,6 @@ export class SubjectsComponent implements OnInit {
       var content = data['content'];
       this.subjects = content.map((key) => ({ ...key }));
       this.datatableservice.initTable('subject');
-
-
-
     }, (err) => {
       console.log('Error while fetching all Classes');
       console.error(err);

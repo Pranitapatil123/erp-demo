@@ -8,7 +8,7 @@ export class AddrouteService {
 
   constructor(private http: HttpClient) { }
 
-  url = `http://yamistha.cloudjiffy.net/transport route/`;
+  url = `http://yamistha.cloudjiffy.net/transport-route/`;
   
   save(transportRouteDto): any {
     return this.http.post(this.url, transportRouteDto);

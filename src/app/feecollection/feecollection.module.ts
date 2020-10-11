@@ -12,7 +12,7 @@ import { DuefeesComponent } from './duefees/duefees.component';
 import { FeestypeComponent } from './feestype/feestype.component';
 import { ReminderComponent } from './reminder/reminder.component';
 import { FeesGroupAssignComponent } from './fees-group-assign/fees-group-assign.component';
-import { FeesMasterComponent } from './fees-master/fees-master.component';
+//import { FeesMasterComponent } from './fees-master/fees-master.component';
 import { FormsModule } from "@angular/forms";
 import { ReactiveFormsModule } from "@angular/forms";
 
@@ -22,7 +22,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [CollectfeesComponent, FeespaymentComponent, CaryforwordComponent, FeesdiscountComponent, FeesmasterComponent,
-    FeesgroupComponent, DuefeesComponent, FeestypeComponent, ReminderComponent, FeesGroupAssignComponent, FeesMasterComponent],
+    FeesgroupComponent, DuefeesComponent, FeestypeComponent, ReminderComponent, FeesGroupAssignComponent, ],
   imports: [
     CommonModule,
     FeeCollectionRoutingModule,

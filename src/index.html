@@ -5,9 +5,12 @@
   <meta charset="utf-8">
   <title>ARTCODE</title>
   <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <!-- <meta name="description" content=""> -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+
 
   <!-- Favicon -->
   <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
@@ -29,6 +32,7 @@
   <link rel="stylesheet" href="/assets/css/datepicker.min.css">
   <!-- Custom CSS -->
   <link type="text/css" rel="stylesheet" href="styles.css">
+  
   <!-- <link rel="stylesheet" href="styles.css"> -->
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
@@ -95,6 +99,7 @@
         background-position: -750% 0;
       }
     }
+
   </style>
 </head>
 
@@ -163,7 +168,7 @@
                   <li><a href="#"><i class="flaticon-chat-comment-oval-speech-bubble-with-text-lines"></i>Message</a>
                   </li>
                   <li><a href="#"><i class="flaticon-gear-loading"></i>Account Settings</a></li>
-                  <li><a href="login.html"><i class="flaticon-turn-off"></i>Log Out</a></li>
+                  <li><a href="/#/Login" type="button"><i class="flaticon-turn-off"></i>Log Out</a></li>
                 </ul>
               </div>
             </div>
@@ -416,7 +421,7 @@
                   <a href="/#/duefees" class="nav-link "><i class="fas fa-angle-right"></i>Search Due Fees</a>
                 </li>
                 <li class="nav-item">
-                  <a href="/#/fees-master" class="nav-link"><i class="fas fa-angle-right"></i>Fees Master</a>
+                  <a href="/#/feesmaster" class="nav-link"><i class="fas fa-angle-right"></i>Fees Master</a>
                 </li>
 
                 <li class="nav-item">
@@ -1018,41 +1023,8 @@
 
 
 
-            <li class="nav-item sidebar-nav-item">
-              <a href="#" class="nav-link"><i class="flaticon-shopping-list"></i><span>System Setting</span></a>
-              <ul class="nav sub-group-menu">
-                
-                <li class="nav-item">
-                  <a href="/#/generalsetting" class="nav-link"><i class="fas fa-angle-right"></i>General Setting</a>
-                </li>
-                <li class="nav-item">
-                  <a href="/#/sessionsetting" class="nav-link"><i class="fas fa-angle-right"></i>Session Setting</a>
-                </li>
-                <li class="nav-item">
-                  <a href="/#/notificationsetting" class="nav-link">
-                    <i class="fas fa-angle-right"></i>Notification Setting</a>
-                </li>
-                <li class="nav-item">
-                  <a href="/#/smssetting" class="nav-link"><i class="fas fa-angle-right"></i>SMS Setting</a>
-                </li>
-                <li class="nav-item">
-                  <a href="/#/emailsetting" class="nav-link"><i class="fas fa-angle-right"></i>Email Setting</a>
-                </li>
-                <li class="nav-item">
-                  <a href="/#/payment-methods" class="nav-link"><i class="fas fa-angle-right"></i>Payment Methods</a>
-                </li>
-                <li class="nav-item">
-                  <a href="/#/front-cms-setting" class="nav-link"><i class="fas fa-angle-right"></i>Front CMS Setting</a>
-                </li>
-                 <li class="nav-item">
-                  <a href="/#/roles-permissions" class="nav-link">
-                    <i class="fas fa-angle-right"></i>Roles permissions</a>
-                </li>
-                <li class="nav-item">
-                  <a href="/#/backup-restore" class="nav-link"><i class="fas fa-angle-right"></i>Backup/Restore</a>
-                </li>
-              </ul>
-            </li>
+
+            
 
 
 
@@ -1088,17 +1060,96 @@
 
 
 
+
+            <li class="nav-item sidebar-nav-item">
+              <a href="#" class="nav-link"><i class="flaticon-settings"></i><span>System Setting</span></a>
+              <ul class="nav sub-group-menu">
+                <!-- sub-group-active-->
+                <li class="nav-item">
+                  <a href="/#/general-setting" class="nav-link" routerLinkActive="active"><i
+                      class="fas fa-angle-right"></i>General Setting</a>
+                </li>
+                <li class="nav-item">
+                  <a href="/#/sesstion-setting" class="nav-link" routerLinkActive="active"><i
+                      class="fas fa-angle-right"></i>Session Setting</a>
+                </li>
+                <li class="nav-item">
+                  <a href="/#/notification-setting" class="nav-link" routerLinkActive="active"><i
+                      class="fas fa-angle-right"></i>Notification Setting</a>
+                </li>
+                <li class="nav-item">
+                  <a href="/#/sms-setting" class="nav-link" routerLinkActive="active"><i
+                      class="fas fa-angle-right"></i>SMS Setting</a>
+                </li>
+                <li class="nav-item">
+                  <a href="/#/email-setting" class="nav-link" routerLinkActive="active"><i
+                      class="fas fa-angle-right"></i>Email Setting</a>
+                </li>
+                <li class="nav-item">
+                  <a href="/#/payment-methods" class="nav-link" routerLinkActive="active"><i
+                      class="fas fa-angle-right"></i>Payment Methods</a>
+                </li>
+                <li class="nav-item">
+                  <a href="/#/frontcms-setting" class="nav-link" routerLinkActive="active"><i
+                      class="fas fa-angle-right"></i>Front CMS Setting</a>
+                </li>
+                <li class="nav-item">
+                  <a href="/#/roles-permission" class="nav-link" routerLinkActive="active"><i
+                      class="fas fa-angle-right"></i>Roles Permission</a>
+                </li>
+                <li class="nav-item">
+                  <a href="/#/backup-restore" class="nav-link" routerLinkActive="active"><i
+                      class="fas fa-angle-right"></i>Backup/Restore</a>
+                </li>
+                <li class="nav-item">
+                  <a href="/#/languages" class="nav-link" routerLinkActive="active"><i
+                      class="fas fa-angle-right"></i>Languages</a>
+                </li>
+                <li class="nav-item">
+                  <a href="/#/users" class="nav-link" routerLinkActive="active"><i
+                      class="fas fa-angle-right"></i>Users</a>
+                </li>
+                <li class="nav-item">
+                  <a href="/#/modules" class="nav-link" routerLinkActive="active"><i
+                      class="fas fa-angle-right"></i>modules</a>
+                </li>
+                <li class="nav-item">
+                  <a href="/#/custom-fields" class="nav-link" routerLinkActive="active"><i
+                      class="fas fa-angle-right"></i>Custom Fields</a>
+                </li>
+                <li class="nav-item">
+                  <a href="/#/system-fields" class="nav-link" routerLinkActive="active"><i
+                      class="fas fa-angle-right"></i>System Fields</a>
+                </li>
+                <li class="nav-item">
+                  <a href="/#/assign-permission" class="nav-link" routerLinkActive="active"><i
+                      class="fas fa-angle-right"></i>Assign Permission</a>
+                </li>
+
+
+
+              </ul>
+            </li>
+
           </ul>
         </div>
       </div>
       <!-- Sidebar Area End Here -->
 
+
       <div class="dashboard-content-one">
         <app-root></app-root>
-          <div id="globalLoader" class="global-loader">
-              <h1>LOADING...</h1>
-          </div>
+        <div id="globalLoader" class="global-loader">
+          <h1>LOADING...</h1>
+        </div>
       </div>
+      <!-- =================================login window start=======================================-->
+      <div id="loginPopup" class="modal fade" role="dialog">
+
+      </div>
+
+      <!-- =================================login window end =========================================-->
+
 
     </div>
 

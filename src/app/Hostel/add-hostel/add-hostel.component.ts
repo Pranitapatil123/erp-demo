@@ -12,9 +12,6 @@ import { HttpClient } from "@angular/common/http";
 export class AddHostelComponent implements OnInit {
 
 
-
-  url = `http://yamistha.cloudjiffy.net/hostel`;
-
   hostels = [];
   hostelDto = {
     "address": "",

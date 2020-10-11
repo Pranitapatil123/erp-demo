@@ -11,7 +11,6 @@ import { DuefeesComponent } from './duefees/duefees.component';
 import { FeestypeComponent } from './feestype/feestype.component';
 import { ReminderComponent } from './reminder/reminder.component';
 import { FeesGroupAssignComponent } from './fees-group-assign/fees-group-assign.component';
-import { FeesMasterComponent } from './fees-master/fees-master.component';
 
 //import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -30,7 +29,6 @@ const routes: Routes = [
   {path :'feestype', component: FeestypeComponent},
   {path :'reminder', component: ReminderComponent},
   {path :'fees-group-assign', component: FeesGroupAssignComponent},
-  { path: 'fees-master', component: FeesMasterComponent },
 
 
 ];

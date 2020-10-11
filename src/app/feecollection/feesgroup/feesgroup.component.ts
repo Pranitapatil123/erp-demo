@@ -9,6 +9,9 @@ import { FeesGroupService } from './feesgroup.service';
   styleUrls: ['./feesgroup.component.css']
 })
 export class FeesgroupComponent implements OnInit {
+  url = `http://yamistha.cloudjiffy.net/fee-group/`;
+  
+
 
   constructor(private feesgoupService: FeesGroupService, private datatableservice: DatatableService) { }
 
@@ -24,11 +27,11 @@ export class FeesgroupComponent implements OnInit {
   isUpdate: boolean = false;
 
   ngOnInit(): void {
-    this.getList();
+    this.getgroupList();
   }
 
-  getList() {
-    this.feesgoupService.getList().subscribe((res: any) => {
+  getgroupList() {
+    this.feesgoupService.getgroupList().subscribe((res: any) => {
       var data = res['data'];
       var content = data['content'];
       this.feesgroup = content.map((key) => ({ ...key }));
@@ -45,7 +48,7 @@ export class FeesgroupComponent implements OnInit {
         alert('Saved Successfully');
       }
       this.datatableservice.destroy();
-      this.getList();
+      this.getgroupList();
       this.clearData();
     }, (err) => {
       console.log('Error While Saving');
@@ -78,7 +81,7 @@ export class FeesgroupComponent implements OnInit {
       }
       this.datatableservice.destroy();
       this.isUpdate = false;
-      this.getList();
+      this.getgroupList();
       this.clearData();
     }, (err) => {
       console.log('Error while Updating');
@@ -93,7 +96,7 @@ export class FeesgroupComponent implements OnInit {
         alert('Deleted Successfully');
       }
       this.datatableservice.destroy();
-      this.getList();
+      this.getgroupList();
       this.clearData();
     }, (err) => {
       console.log('Error while deleting ');

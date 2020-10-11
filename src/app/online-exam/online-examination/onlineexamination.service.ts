@@ -7,10 +7,10 @@ import { HttpClient } from "@angular/common/http";
 export class OnlineexaminationService {
   constructor(private http: HttpClient) { }
 
-  url = 'http://yamistha.cloudjiffy.net/online exam/';
+  url = 'http://yamistha.cloudjiffy.net/online-exam/';
 
 
-  addonline(onlineexamDto): any {
+  save(onlineexamDto): any {
     return this.http.post(this.url, onlineexamDto);
   }
 
@@ -26,7 +26,7 @@ export class OnlineexaminationService {
     return this.http.put(this.url + onlineId, onlineexamDto);
   }
 
-  getByonlineId(onlineId): any {
+  getonlineById(onlineId): any {
     return this.http.get(this.url + onlineId);
   }
 }

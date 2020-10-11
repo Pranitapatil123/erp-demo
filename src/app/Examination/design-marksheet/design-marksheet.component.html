@@ -10,92 +10,45 @@
 <!-- Breadcubs Area End Here -->
 <!-- upload Area Start Here -->
 
-
-
-<div class="col-8-xxxl col-12">
-  <div class="card height-auto">
-    <div class="card-body">
-      <div class="heading-layout1">
-        <div class="item-title">
-          <h3>Marksheet List</h3>
-        </div>
-        <div class="dropdown">
-          <button style="  background-color: #000066; position: relative; top:0; right: 10; float: right;" type="button"
-            class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">+ Add</button>
-        </div>
+<div class="card height-auto">
+  <div class="card-body">
+    <div class="heading-layout1">
+      <div class="item-title">
+        <h3>Marksheet List</h3>
       </div>
-      <div class="table-responsive">
-        <table id="example" class="table display data-table text-nowrap cell-border">
-          <thead>
-            <tr>
-              <th>Certificate Name</th>
-              <th>Background img</th>
-
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>ABC</td>
-
-              <td>1(A)</td>
-              <td>
-                <a href="#"><i class="fas fa-align-justify "></i>&nbsp;</a>
-                <a href="#"><i class="fas fa-pen-alt text-orange-peel"></i>&nbsp;</a>
-                <a href="#"><i class="fas fa-times text-orange-red"></i>&nbsp;</a>
-              </td>
-            </tr>
-
-            <tr>
-              <td>ABC</td>
-
-              <td>1(A)</td>
-              <td>
-                <a href="#"><i class="fas fa-align-justify "></i>&nbsp;</a>
-                <a href="#"><i class="fas fa-pen-alt text-orange-peel"></i>&nbsp;</a>
-                <a href="#"><i class="fas fa-times text-orange-red"></i>&nbsp;</a>
-              </td>
-            </tr>
-
-            <tr>
-              <td>ABC</td>
-
-              <td>1(A)</td>
-              <td>
-                <a href="#"><i class="fas fa-align-justify "></i>&nbsp;</a>
-                <a href="#"><i class="fas fa-pen-alt text-orange-peel"></i>&nbsp;</a>
-                <a href="#"><i class="fas fa-times text-orange-red"></i>&nbsp;</a>
-              </td>
-            </tr>
-
-            <tr>
-              <td>ABC</td>
-
-              <td>1(A)</td>
-              <td>
-                <a href="#"><i class="fas fa-align-justify "></i>&nbsp;</a>
-                <a href="#"><i class="fas fa-pen-alt text-orange-peel"></i>&nbsp;</a>
-                <a href="#"><i class="fas fa-times text-orange-red"></i>&nbsp;</a>
-              </td>
-            </tr>
-
-            <tr>
-              <td>ABC</td>
-
-              <td>1(A)</td>
-              <td>
-                <a href="#"><i class="fas fa-align-justify "></i>&nbsp;</a>
-                <a href="#"><i class="fas fa-pen-alt text-orange-peel"></i>&nbsp;</a>
-                <a href="#"><i class="fas fa-times text-orange-red"></i>&nbsp;</a>
-              </td>
-            </tr>
-          </tbody>
-
-        </table>
+      <div class="dropdown">
+        <button style="  background-color: #000066; position: relative; top:0; right: 10; float: right;" type="button"
+          class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">+ Add</button>
       </div>
+    </div>
+    <div class="table-responsive">
+      <table id="example" class="table display data-table text-nowrap cell-border">
+        <thead>
+          <tr>
+            <th>Certificate Name</th>
+            <th>Background img</th>
+
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let mark of marks">
+            <td>{{ mark.template }}</td>
+            <td>{{ mark.backgroundImg }}</td>
+
+
+            <td> <a (click)="setUpdateFileds(mark.id)" data-toggle="modal" data-target="#myModal"><i
+                  class="fas fa-pen-alt text-orange-peel"></i>&nbsp;</a>
+              <a (click)="deletemark(mark.id)"><i class=" fas fa-times text-orange-red"></i>&nbsp;</a></td>
+
+          </tr>
+        </tbody>
+
+      </table>
     </div>
   </div>
 </div>
+
 <!-- upload Area End Here -->
 <div class="container">
 
@@ -113,78 +66,80 @@
             <div class="row">
               <div class="col-xl-3 col-lg-6 col-12 form-group">
                 <label for="inp" class="inp">
-                  <input type="text" name="chapter" class="form-control" id="inp" placeholder="&nbsp;">
+                  <input type="text" class="form-control" id="inp" placeholder="&nbsp;"
+                    [(ngModel)]="templateMarksheetDto.template" name="template" [value]="templateMarksheetDto.template">
                   <span class="label">Template *</span>
                   <span class="focus-bg"></span>
                 </label>
               </div>
               <div class="col-xl-3 col-lg-6 col-12 form-group">
                 <label for="inp" class="inp">
-                  <input type="text" name="chapter" class="form-control" id="inp" placeholder="&nbsp;">
-                  <span class="label">Heading *</span>
+                  <input type="text" class="form-control" id="inp" placeholder="&nbsp;"
+                    [(ngModel)]="templateMarksheetDto.title" name="title" [value]="templateMarksheetDto.title">
+                  <span class="label">Heading Title *</span>
                   <span class="focus-bg"></span>
                 </label>
               </div>
               <div class="col-xl-3 col-lg-6 col-12 form-group">
                 <label for="inp" class="inp">
-                  <input type="text" name="chapter" class="form-control" id="inp" placeholder="&nbsp;">
-                  <span class="label">Title *</span>
-                  <span class="focus-bg"></span>
-                </label>
-              </div>
-              <div class="col-xl-3 col-lg-6 col-12 form-group">
-                <label for="inp" class="inp">
-                  <input type="text" name="chapter" class="form-control" id="inp" placeholder="&nbsp;">
+                  <input type="text" class="form-control" id="inp" placeholder="&nbsp;"
+                    [(ngModel)]="templateMarksheetDto.examName" name="examName" [value]="templateMarksheetDto.examName">
                   <span class="label">Exam Name *</span>
                   <span class="focus-bg"></span>
                 </label>
               </div>
               <div class="col-xl-3 col-lg-6 col-12 form-group">
                 <label for="inp" class="inp">
-                  <input type="text" name="chapter" class="form-control" id="inp" placeholder="&nbsp;">
+                  <input type="text" class="form-control" id="inp" placeholder="&nbsp;"
+                    [(ngModel)]="templateMarksheetDto.examName" name="schoolName"
+                    [value]="templateMarksheetDto.schoolName">
                   <span class="label">School Name *</span>
                   <span class="focus-bg"></span>
                 </label>
               </div>
               <div class="col-xl-3 col-lg-6 col-12 form-group">
                 <label for="inp" class="inp">
-                  <input type="text" name="chapter" class="form-control" id="inp" placeholder="&nbsp;">
+                  <input type="text" class="form-control" id="inp" placeholder="&nbsp;"
+                    [(ngModel)]="templateMarksheetDto.examCenter" name="examCenter"
+                    [value]="templateMarksheetDto.examCenter">
                   <span class="label">Exam Center *</span>
                   <span class="focus-bg"></span>
                 </label>
               </div>
-              <div class="col-xl-3 col-lg-6 col-12 form-group">
-                <label for="inp" class="inp">
-                  <input type="date" id="dtp" placeholder="&nbsp;">
+              <div class="col-xl-4 col-lg-6 col-12 form-group">
+                <label for="dtp" class="dtp">
+                  <input type="date" id="dtp" placeholder="&nbsp;" name="date" [(ngModel)]="templateMarksheetDto.date">
                   <span class="label">Printing Date *</span>
                   <span class="focus-bg"></span>
                 </label>
               </div>
               <div class="col-xl-3 col-lg-6 col-12 form-group">
-
-                <label for="inp" class="inp" style="font-size: small;">Left Logo</label>
-                <input type="file" class="form-control-file" name="photo" placeholder="">
+                <label class="text-dark-medium" style="font-size: small;">Left Logo</label>
+                <input type="file" class="form-control-file" name="leftLogo" placeholder="left logo"
+                  [(ngModel)]="templateMarksheetDto.leftLogo" required>
               </div>
               <div class="col-xl-3 col-lg-6 col-12 form-group">
-
-                <label for="inp" class="inp" style="font-size: small;">Right Logo</label>
-                <input type="file" class="form-control-file" name="photo" placeholder="">
+                <label class="text-dark-medium" style="font-size: small;">Right Logo</label>
+                <input type="file" class="form-control-file" name="rightLogo" placeholder="right logo"
+                  [(ngModel)]="templateMarksheetDto.rightLogo" required>
               </div>
               <div class="col-xl-3 col-lg-6 col-12 form-group">
-
-                <label for="inp" class="inp" style="font-size: small;">Sign</label>
-                <input type="file" class="form-control-file" name="photo" placeholder="">
+                <label class="text-dark-medium" style="font-size: small;">Sign</label>
+                <input type="file" class="form-control-file" name="sign" placeholder="sign"
+                  [(ngModel)]="templateMarksheetDto.sign" required>
               </div>
               <div class="col-xl-3 col-lg-6 col-12 form-group">
-
-                <label for="inp" class="inp" style="font-size: small;">Background Image</label>
-                <input type="file" class="form-control-file" name="photo" placeholder="">
+                <label class="text-dark-medium" style="font-size: small;">Background Image</label>
+                <input type="file" class="form-control-file" name="backgroundImg" placeholder="Background Image"
+                  [(ngModel)]="templateMarksheetDto.backgroundImg" required>
               </div><br><br><br>
               <div class="col-xl-3 col-lg-6 col-12 form-group">
 
                 <label for="inp" class="inp" style="font-size: small;">Name</label>
                 <div class="onoffswitch">
-                  <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch">
+
+                  <input type="checkbox" class="onoffswitch-checkbox" id="myonoffswitch" placeholder="&nbsp;"
+                    [(ngModel)]="templateMarksheetDto.isName" name="isName" [value]="templateMarksheetDto.isName">
                   <label class="onoffswitch-label" for="myonoffswitch">
                     <span class="onoffswitch-inner"></span>
                     <span class="onoffswitch-switch"></span>
@@ -195,7 +150,9 @@
 
                 <label for="inp" class="inp" style="font-size: small;">Father's Name</label>
                 <div class="onoffswitch">
-                  <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox">
+                  <input type="checkbox" class="onoffswitch-checkbox" id="myonoffswitch" placeholder="&nbsp;"
+                    [(ngModel)]="templateMarksheetDto.isFatherName" name="isFatherName"
+                    [value]="templateMarksheetDto.isFatherName">
                   <label class="onoffswitch-label" for="myonoffswitch">
                     <span class="onoffswitch-inner"></span>
                     <span class="onoffswitch-switch"></span>
@@ -206,7 +163,9 @@
 
                 <label for="inp" class="inp" style="font-size: small;">Mother's Name</label>
                 <div class="onoffswitch">
-                  <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch">
+                  <input type="checkbox" class="onoffswitch-checkbox" id="myonoffswitch" placeholder="&nbsp;"
+                    [(ngModel)]="templateMarksheetDto.isMotherName" name="isMotherName"
+                    [value]="templateMarksheetDto.isMotherName">
                   <label class="onoffswitch-label" for="myonoffswitch">
                     <span class="onoffswitch-inner"></span>
                     <span class="onoffswitch-switch"></span>
@@ -217,8 +176,9 @@
 
                 <label for="inp" class="inp" style="font-size: small;">Date Of Birth</label>
                 <div class="onoffswitch">
-                  <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch">
-                  <label class="onoffswitch-label" for="myonoffswitch">
+                  <input type="checkbox" class="onoffswitch-checkbox" id="myonoffswitch" placeholder="&nbsp;"
+                    [(ngModel)]="templateMarksheetDto.isDob" name="isDob" [value]="templateMarksheetDto.isDob"> <label
+                    class="onoffswitch-label" for="myonoffswitch">
                     <span class="onoffswitch-inner"></span>
                     <span class="onoffswitch-switch"></span>
                   </label>
@@ -228,7 +188,33 @@
 
                 <label for="inp" class="inp" style="font-size: small;">Admission No</label>
                 <div class="onoffswitch">
-                  <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch">
+                  <input type="checkbox" class="onoffswitch-checkbox" id="myonoffswitch" placeholder="&nbsp;"
+                    [(ngModel)]="templateMarksheetDto.isAdmissionNo" name="isAdmissionNo"
+                    [value]="templateMarksheetDto.isAdmissionNo">
+                  <label class="onoffswitch-label" for="myonoffswitch">
+                    <span class="onoffswitch-inner"></span>
+                    <span class="onoffswitch-switch"></span>
+                  </label>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-6 col-12 form-group">
+
+                <label for="inp" class="inp" style="font-size: small;">Roll No</label>
+                <div class="onoffswitch">
+                  <input type="checkbox" class="onoffswitch-checkbox" id="myonoffswitch" placeholder="&nbsp;"
+                    [(ngModel)]="templateMarksheetDto.isRollNo" name="isRollNo" [value]="templateMarksheetDto.isRollNo">
+                  <label class="onoffswitch-label" for="myonoffswitch">
+                    <span class="onoffswitch-inner"></span>
+                    <span class="onoffswitch-switch"></span>
+                  </label>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-6 col-12 form-group">
+                <label for="inp" class="inp" style="font-size: small;">Gender</label>
+
+                <div class="onoffswitch">
+                  <input type="checkbox" class="onoffswitch-checkbox" id="myonoffswitch" placeholder="&nbsp;"
+                    [(ngModel)]="templateMarksheetDto.isGender" name="isGender" [value]="templateMarksheetDto.isGender">
                   <label class="onoffswitch-label" for="myonoffswitch">
                     <span class="onoffswitch-inner"></span>
                     <span class="onoffswitch-switch"></span>
@@ -239,18 +225,9 @@
 
                 <label for="inp" class="inp" style="font-size: small;">Address</label>
                 <div class="onoffswitch">
-                  <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch">
-                  <label class="onoffswitch-label" for="myonoffswitch">
-                    <span class="onoffswitch-inner"></span>
-                    <span class="onoffswitch-switch"></span>
-                  </label>
-                </div>
-              </div>
-              <div class="col-xl-3 col-lg-6 col-12 form-group">
-
-                <label for="inp" class="inp" style="font-size: small;">Gender</label>
-                <div class="onoffswitch">
-                  <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch">
+                  <input type="checkbox" class="onoffswitch-checkbox" id="myonoffswitch" placeholder="&nbsp;"
+                    [(ngModel)]="templateMarksheetDto.isAddress" name="isAddress"
+                    [value]="templateMarksheetDto.isAddress">
                   <label class="onoffswitch-label" for="myonoffswitch">
                     <span class="onoffswitch-inner"></span>
                     <span class="onoffswitch-switch"></span>
@@ -261,17 +238,80 @@
 
                 <label for="inp" class="inp" style="font-size: small;">Photo</label>
                 <div class="onoffswitch">
-                  <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch">
+                  <input type="checkbox" class="onoffswitch-checkbox" id="myonoffswitch" placeholder="&nbsp;"
+                    [(ngModel)]="templateMarksheetDto.isPhoto" name="isPhoto" [value]="templateMarksheetDto.isPhoto">
                   <label class="onoffswitch-label" for="myonoffswitch">
                     <span class="onoffswitch-inner"></span>
                     <span class="onoffswitch-switch"></span>
                   </label>
                 </div>
               </div>
+              <!-- <clr-main-container>
+                <div class="content-container">
+                  <div class="content-area">
+                    <form>
+                      <section class="form-block">
+                        <div class="form-group">
+                          <label>Toggles</label>
+                          <div class="toggle-switch">
+                            <input type="checkbox" id="toggle_1">
+                            <label for="toggle_1">Toggles turn on and off</label>
+                          </div>
+
+                        </div>
+                      </section>
+
+                      <section class="form-block">
+                        <label>Toggle Switch</label>
+                        <div class="form-group">
+                          <label class="required">Remote?</label>
+                          <div class="toggle-switch">
+                            <input type="checkbox" id="isRemote" (focus)="onToggleFocus()"
+                              (focusout)="onToggleLoseFocus()">
+                            <label for="isRemote"></label>
+                          </div>
+
+                          <label for="isRemote" aria-haspopup="true" role="tooltip"
+                            class="tooltip tooltip-validation invalid tooltip-sm">
+                            <span id="toggleTooltip" class="tooltip-content">There is a fatal error</span>
+                          </label>
+
+                          <a href="javascript:void(0)" role="tooltip" aria-haspopup="true" class="tooltip tooltip-lg">
+                            <clr-icon shape="info-circle" size="24"></clr-icon>
+                            <span class="tooltip-content">{{tooltip}}</span>
+                          </a>
+                        </div>
+                      </section>
+
+                      <section class="form-block">
+                        <label>Hard Disk</label>
+                        <div class="form-group">
+                          <label class="required">Space</label>
+                          <label for="validInput2" aria-haspopup="true" role="tooltip"
+                            class="tooltip tooltip-validation invalid tooltip-md">
+                            <input type="text" id="validInput2">
+                            <span class="tooltip-content">
+                              This field cannot be empty!
+                            </span>
+                          </label>
+
+                        </div>
+                      </section>
+                    </form>
+                  </div>
+                </div>
+              </clr-main-container> -->
 
               <br><br><br>
-              <div class="col-12 form-group mg-t-8">
-                <button type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Save</button>&nbsp;
+              <div class="col-xl-4 col-lg-6 col-12 form-group"> <button *ngIf="!this.isUpdate" (click)="addmarksheet()"
+                  type="button" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark" data-toggle="modal"
+                  data-target="#myModal">
+                  Save
+                </button>
+                <button *ngIf="this.isUpdate" (click)="updatemarksheet(templateMarksheetDto.id)" type="button"
+                  class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark" data-toggle="modal" data-target="#myModal">
+                  Update
+                </button>
               </div>
             </div>
           </form>

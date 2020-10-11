@@ -50,8 +50,17 @@ import { FeeCollectionModule } from './feecollection/feecollection.module';
 import { LibraryModule } from './Library/Library.module';
 import { IncomeModule } from './income/income.module';
 import { HumanResourceModule } from './human_resource/HumanResourceModule';
+ 
 import { CommonModule } from '@angular/common';
 //import { GeneralsettingComponent } from './generalsetting/generalsetting.component';
+
+
+import { HomeworkEvaluationComponent } from './Homework/homework-evaluation/homework-evaluation.component';
+import { SesstionSettingComponent } from './system_setting/sesstion-setting/sesstion-setting.component';
+
+import { LoginModule } from './login/login.module';
+import { LoginComponent } from './login/login.component';
+//import { AssignPermissionComponent } from './assign-permission/assign-permission.component';
 
 
 
@@ -95,8 +104,17 @@ import { CommonModule } from '@angular/common';
     SourceComponent,
     ReferenceComponent,
     ComplainttypeComponent,
+
     //GeneralsettingComponent,
     
+
+    HomeworkEvaluationComponent,
+
+SesstionSettingComponent,
+
+//AssignPermissionComponent,
+
+
     
   ],
   imports: [
@@ -116,9 +134,11 @@ import { CommonModule } from '@angular/common';
     //BsDatepickerModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
+   LoginModule,
     RouterModule.forRoot(
       [
-        { path: "", redirectTo: "admin", pathMatch: "full" },
+        { path: "", redirectTo: "Login", pathMatch: "full" },
+        { path:"Login",component:LoginComponent},
         { path: "admin", component: HomeComponent },
         { path: "parentsdetails", component: ParentsdetailsComponent },
         { path: "addparents", component: AddParentsComponent },

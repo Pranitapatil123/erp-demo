@@ -10,31 +10,6 @@
 </div>
 <!-- upload Area Start Here -->
 
-<!--  <div class="card height-auto">
-        <div class="card-body">
-            
-            <div class="table-responsive">
-                <table id="example" class="table display data-table text-nowrap cell-border">
-                    <thead>
-                        <tr>
-                            <th>Exam Group</th>
-                            <th>Exam Type</th>
-                            <th>Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>ESE</td>  
-                                    <td>ESE I</td>                           
-                                    <td>Final Exam</td>
-                            
-                        </tr>
-                        
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div> -->
 <div class="card height-auto">
   <div class="card-body">
     <div class="heading-layout1">
@@ -45,37 +20,48 @@
         <button style="  background-color: #000066; position: relative; top:0; right: 10; float: right;" type="button"
           class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Link Exam</button>
         <button style="  background-color: #000066; position: relative; top:0; right: 10; float: right;" type="button"
-          class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal1">Add Exam</button>
+          class="btn btn-info btn-lg" (click)="clearData()" data-toggle="modal" data-target="#myModal1">Add Exam</button>
 
       </div>
     </div>
+    
     <div class="table-responsive">
       <table id="example" class="table display data-table text-nowrap cell-border">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Session</th>
-            <th>Subject Included</th>
+            <th>Exam Name</th>
+            <th>Exam Group Id</th>
+            <th>Exam Group Name</th>
+            <th>Session Id</th>
+            <th>Session Name</th>
+            <th>Subject Count</th>
             <th>Publish Result</th>
+            <th>Date From</th>
+            <th>Date To</th>
             <th>Description</th>
+            <th>Status</th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>ABC</td>
-            <td>2019-20</td>
-            <td>Final Exam</td>
-            <td>Final Exam</td>
-            <td>Final Exam</td>
+          <tr *ngFor="let exam of Exams">
+            <td>{{exam.name}}</td>
+            <td>{{exam.examGroupId}}</td>
+            <td>{{exam.examGroupName}}</td>
+            <td>{{exam.sessionId}}</td>
+            <td>{{exam.sessionName}}</td>
+            <td>{{exam.subjectCount}}</td>
+            <td>{{exam.isPublish}}</td>
+            <td>{{exam.dateFrom}}</td>
+            <td>{{exam.dateTo}}</td>
+            <td>{{exam.description}}</td>
+            <td>{{exam.status}}</td>
             <td>
-
               <i class="fa fa-tag" title="Assign / View Student" data-toggle="modal" data-target="#myModal2"></i>&nbsp;
               <i class="fa fa-book" title="Exam Subjects" data-toggle="modal" data-target="#myModal3"></i>&nbsp;
               <i class="fa fa-newspaper" title="Exam Marks" data-toggle="modal" data-target="#myModal4"></i>&nbsp;
               <i class="fa fa-pen" title="Edit"></i>&nbsp;
               <i class="fas fa-times text-orange-red" title="Edit"></i>&nbsp;
-
             </td>
 
           </tr>
@@ -195,30 +181,68 @@
 
               <div class="col-xl-4 col-lg-6 col-12 form-group">
                 <label for="inp" class="inp">
-                  <input type="text" name="chapter" class="form-control" id="inp" placeholder="&nbsp;">
+                  <input type="text" name="name" class="form-control" id="inp" placeholder="&nbsp;" [(ngModel)]="examDto.name"
+                  [value]="examDto.name">
                   <span class="label">Exam Title *</span>
                   <span class="focus-bg"></span>
                 </label>
               </div>
+
               <div class="col-xl-4 col-lg-6 col-12 form-group">
-                <label for="slt" class="slt">
-                  <select name="content" class="form-control" id="slt" placeholder="&nbsp;">
-                    <option value="7">2016-17</option>
-                    <option value="11">2017-18</option>
-                    <option value="13">2018-19</option>
-                    <option value="14" selected="selected">2019-20</option>
-                    <option value="15">2020-21</option>
-                    <option value="16">2021-22</option>
-                    <option value="18">2022-23</option>
-                    <option value="19">2023-24</option>
-                    <option value="20">2024-25</option>
-                    <option value="21">2025-26</option>
-                  </select>
-                  <span class="label">Session *</span>
+                <label for="inp" class="inp">
+                  <input type="text" name="examGroupId" class="form-control" id="inp" placeholder="&nbsp;" [(ngModel)]="examDto.examGroupId"
+                  [value]="examDto.examGroupId">
+                  <span class="label">Exam Group ID</span>
                   <span class="focus-bg"></span>
                 </label>
               </div>
 
+              <div class="col-xl-4 col-lg-6 col-12 form-group">
+                <label for="inp" class="inp">
+                  <input type="text" name="examGroupName" class="form-control" id="inp" placeholder="&nbsp;"[(ngModel)]="examDto.examGroupName"
+                  [value]="examDto.examGroupName">
+                  <span class="label">Exam Group Name</span>
+                  <span class="focus-bg"></span>
+                </label>
+              </div>
+
+              <div class="col-xl-4 col-lg-6 col-12 form-group">
+                <label for="inp" class="inp">
+                  <input type="text" name="sessionId" class="form-control" id="inp" placeholder="&nbsp;"[(ngModel)]="examDto.sessionId"
+                  [value]="examDto.sessionId">
+                  <span class="label">Session Id</span>
+                  <span class="focus-bg"></span>
+                </label>
+              </div>
+
+              <div class="col-xl-4 col-lg-6 col-12 form-group">
+                <label for="inp" class="inp">
+                  <input type="text" name="sessionName" class="form-control" id="inp" placeholder="&nbsp;"[(ngModel)]="examDto.sessionName"
+                      [value]="examDto.sessionName">
+                  <span class="label">Session Name</span>
+                  <span class="focus-bg"></span>
+                </label>
+              </div>
+              <div class="col-xl-4 col-lg-6 col-12 form-group">
+                <label for="inp" class="inp">
+                  <input type="text" name="subjectCount" class="form-control" id="inp" placeholder="&nbsp;" [(ngModel)]="examDto.subjectCount"
+                  [value]="examDto.subjectCount">
+                  <span class="label">Subject Count</span>
+                  <span class="focus-bg"></span>
+                </label>
+              </div>
+              <div class="col-xl-4 col-lg-6 col-12 form-group">
+                <label for="inp" class="inp">
+                  <input type="text" name="idPublish" class="form-control" id="inp" placeholder="&nbsp;" [(ngModel)]="examDto.isPublish"
+                  [value]="examDto.isPublish">
+                  <span class="label">Publish Result</span>
+                  <span class="focus-bg"></span>
+                </label>
+              </div>
+              
+<!--               
+              
+              
               <div class="col-xl-4 col-lg-6 col-12 form-group">
                 <div class="checkbox">
                   <label><input type="checkbox" class="is_active" name="is_active" value="" autocomplete="off">
@@ -228,18 +252,49 @@
                   <label> <input type="checkbox" class="publish_result" name="publish_result" value="">
                     Publish Result </label>
                 </div>
+              </div> -->
+
+              <div class="col-6 col-lg-4 col-12 form-group">
+                <label for="dtp" class="dtp">
+                  <input type="date" id="dtp" placeholder="&nbsp;" name="dateFrom" [(ngModel)]="examDto.dateFrom"
+                  [value]="examDto.dateFrom">
+                  <span class="label"> Exam From *</span>
+                  <span class="focus-bg"></span>
+                </label>
               </div>
 
-              <div class="col-xl-4 col-lg-6 col-12 form-group" rows="3">
+              <div class="col-6 col-lg-4 col-12 form-group">
+                <label for="dtp" class="dtp">
+                  <input type="date" id="dtp" placeholder="&nbsp;" name="dateTo" [(ngModel)]="examDto.dateTo"
+                  [value]="examDto.dateTo">
+                  <span class="label"> Exam To </span>
+                  <span class="focus-bg"></span>
+                </label>
+              </div>
+
+              <div class="col-xl-4 col-lg-6 col-12 form-group" >
                 <label for="inp" class="inp">
-                  <input type="text" name="Description " class="form-control" id="inp" placeholder="&nbsp;">
+                  <input type="text" name="description " class="form-control" id="inp" placeholder="&nbsp;" [(ngModel)]="examDto.description"
+                  [value]="examDto.description">
                   <span class="label">Description *</span>
                   <span class="focus-bg"></span>
                 </label>
               </div>
+
+              <div class="col-xl-4 col-lg-6 col-12 form-group" >
+                <label for="inp" class="inp">
+                  <input type="text" name="status" class="form-control" id="inp" placeholder="&nbsp;"[(ngModel)]="examDto.status"
+                  [value]="examDto.status">
+                  <span class="label">Status</span>
+                  <span class="focus-bg"></span>
+                </label>
+              </div>
+
               <div class="col-12 form-group mg-t-8">
-                <button type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Save</button>&nbsp;
-                <button type="reset" class="btn-fill-lg bg-blue-dark btn-hover-yellow">Reset</button>
+                <button *ngIf="!this.isUpdate" (click)="add()" type="button"  class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark" data-toggle="modal" data-target="#myModal1">Save</button>&nbsp;
+                <button *ngIf="this.isUpdate" (click)="update(examDto.id)" type="button" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark"data-toggle="modal" data-target="#myModal1" >Update</button>&nbsp;
+                <button *ngIf="this.isUpdate" (click)="clearData()" type="button" class="btn-fill-lg bg-blue-dark btn-hover-yellow">Resete</button>&nbsp;
+            
               </div>
 
             </div>
@@ -537,8 +592,6 @@
                 <tr>
                   <th class="">Exam</th>
                   <th class="">Exam Group</th>
-
-
                 </tr>
               </thead>
               <tbody>
@@ -576,13 +629,6 @@
             class="btn btn-info btn-lg">Save</button>
 
         </div>
-
-
-
-
-
-
-
       </div>
     </div>
   </div>

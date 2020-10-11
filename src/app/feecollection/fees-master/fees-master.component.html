@@ -2,7 +2,6 @@
   <ul>
     <li>
       <a href="/#/admin">Home</a>
-
     </li>
     <li>Fees Master 2019-20</li>
   </ul>
@@ -21,42 +20,35 @@
       <table id="example" class="table display data-table text-nowrap cell-border">
         <thead>
           <tr>
-            <th>Fees Group</th>
-            <th>Fees Code</th>
             <th>Amount</th>
             <th>Action</th>
-
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let feemast of feesmaster">
-            <td>{{ feemast.fineType }}</td>
-            <td>{{ feemast.dueDate }}</td>
+            <!-- <td>{{ feemast.feeGroupId }}</td>
+            <td>{{ feemast.feetypeId }}</td> -->
             <td>{{ feemast.amount }}</td>
-
-            <td><i class="fas fa-align-justify "></i>&nbsp;
-              <a href="#"><i class="fas fa-pen-alt text-orange-peel"></i>&nbsp;</a>
-              <a href="#"><i class="fas fa-times text-orange-red"></i>&nbsp;</a>
+            <td>
+              <i class="fas fa-align-justify "></i>&nbsp;
+              <a (click)="setUpdateFileds(feemast.id)" data-toggle="modal" data-target="#myModal"><i
+                  class="fas fa-pen-alt text-orange-peel"></i>&nbsp;</a>
+              <a (click)="deletemaster(feemast.id)"><i class="fas fa-times text-orange-red"></i>&nbsp;</a> 
             </td>
 
           </tr>
         </tbody>
       </table>
     </div>
-
   </div>
-
 </div>
 
 <div class="container">
-
   <div id="myModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
-
       <div class="modal-content">
         <div class="modal-header">
           <div class="item-title">
-
             <h5> Add Fee Master</h5>
           </div>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -64,6 +56,19 @@
         <div class="modal-body">
           <form role="form" method="post" id="reused_form">
             <div class="row">
+              <div class="col-xl-3 col-lg-6 col-12 form-group">
+                <label for="slt" class="slt">
+                  <select class="form-control" id="slt" placeholder="&nbsp;" [(ngModel)]="requestDto.sessionId"
+                    name="sessionId">
+                    <option selected>Please Select *</option>
+                    <option *ngFor="let session of this.sessions" [value]="session.session"
+                      [selected]="requestDto.sessionId == session.session">{{ session.session }}
+                    </option>
+                  </select>
+                  <span class="label">Session*</span>
+                  <span class="focus-bg"></span>
+                </label>
+              </div>
               <div class="col-xl-3 col-lg-6 col-12 form-group">
                 <label for="slt" class="slt">
                   <select class="form-control" id="slt" placeholder="&nbsp;" [(ngModel)]="requestDto.feeGroupId"
@@ -77,6 +82,7 @@
                   <span class="focus-bg"></span>
                 </label>
               </div>
+
               <div class="col-xl-3 col-lg-6 col-12 form-group">
                 <label for="slt" class="slt">
                   <select class="form-control" id="slt" placeholder="&nbsp;" [(ngModel)]="requestDto.feetypeId"
@@ -144,7 +150,6 @@
               </div>
             </div>
           </form>
-
         </div>
       </div>
     </div>

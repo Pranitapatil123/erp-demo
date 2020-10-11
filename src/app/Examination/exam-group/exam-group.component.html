@@ -18,7 +18,7 @@
       </div>
       <div class="dropdown">
         <button style="  background-color: #000066; position: relative; top:0; right: 10; float: right;" type="button"
-          class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">+ Add</button>
+          class="btn btn-info btn-lg" (click)="clearData()" data-toggle="modal" data-target="#myModal">+ Add</button>
       </div>
     </div>
     <div class="table-responsive">
@@ -26,58 +26,20 @@
         <thead>
           <tr>
             <th>Name</th>
-            <th>No.of Exam </th>
+            <th>Description </th>
             <th>Exam Type</th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Marathi</td>
-            <td>10</td>
-            <td>Grade exam</td>
+          <tr *ngFor="let ex of exams">
+            <td>{{ex.name}}</td>
+            <td>{{ex.description}}</td>
+            <td>{{ex.examType}}</td>
             <td>
               <i class="fas fa-plus" onClick="location.href='/#/add-exam'"></i>&nbsp;
-
-
-            </td>
-          </tr>
-          <tr>
-            <td>Marathi</td>
-            <td>10</td>
-            <td>Grade exam</td>
-            <td>
-              <i class="fas fa-plus" onClick="location.href='/#/add-exam'"></i>&nbsp;
-
-
-            </td>
-          </tr>
-          <tr>
-            <td>Marathi</td>
-            <td>10</td>
-            <td>Grade exam</td>
-            <td>
-              <i class="fas fa-plus" onClick="location.href='/#/add-exam'"></i>&nbsp;
-
-
-            </td>
-          </tr>
-          <tr>
-            <td>Marathi</td>
-            <td>10</td>
-            <td>Grade exam</td>
-            <td>
-              <i class="fas fa-plus" onClick="location.href='/#/add-exam'"></i>&nbsp;
-
-            </td>
-          </tr>
-          <tr>
-            <td>Marathi</td>
-            <td>10</td>
-            <td>Grade exam</td>
-            <td>
-              <i class="fas fa-plus" onClick="location.href='/#/add-exam'"></i>&nbsp;
-
+              <a (click)="setUpdateFileds(ex.id)"  data-toggle="modal" data-target="#myModal"><i class="fas fa-pen-alt text-orange-peel"></i>&nbsp;</a>
+              <a (click)="delete(ex.id)"><i class="fas fa-times text-orange-red"></i>&nbsp;</a>
             </td>
           </tr>
         </tbody>
@@ -101,38 +63,49 @@
 
         </div>
         <div class="modal-body">
-          <form role="form" method="post" id="reused_form">
+          <form name="exam_form">
             <div class="row">
               <div class="col-xl-4 col-lg-6 col-12 form-group">
                 <label for="inp" class="inp">
-                  <input type="text" name="chapter" class="form-control" id="inp" placeholder="&nbsp;">
-                  <span class="label">Name *</span>
+                  <input type="text"name="name" class="form-control" id="inp" placeholder="&nbsp;" [(ngModel)]="examGroupDto.name"
+                     [value]="examGroupDto.name"> 
+                    <span class="label">Name *</span>
                   <span class="focus-bg"></span>
                 </label>
               </div>
+
               <div class="col-xl-4 col-lg-6 col-12 form-group">
                 <label for="slt" class="slt">
-                  <select name="content" class="form-control" id="slt" placeholder="&nbsp;">
+                  <select name="examType" class="form-control" id="slt" placeholder="&nbsp;"  [(ngModel)]="examGroupDto.examType">
                     <option selected>Please Select Content *</option>
-                    <option value="1">General Purpose(Pass/Fail)</option>
-                    <option value="2">School Based Grading System</option>
-                    <option value="3">Collage Based Grading System</option>
-                    <option value="3">GPA Grading System</option>
-
+                    <option value="General Purpose(Pass/Fail)" [selected]="examGroupDto.examType=='General Purpose(Pass/Fail)'">General Purpose(Pass/Fail)</option>
+                    <option value="School Based Grading System" [selected]="examGroupDto.examType=='School Based System'">School Based Grading System</option>
+                    <option value="Collage Based Grading System" [selected]="examGroupDto.examType=='Collage Based Grading System'">Collage Based Grading System</option>
+                    <option value="GPA Grading System" [selected]="examGroupDto.examType=='GPA Grading System'">GPA Grading System</option>
+                    <!-- <option selected>Please Select *</option>
+                    <option *ngFor="let exam  of examTypes" [value]="exam.examType"
+                      [selected]="examGroupDto.examType == exam.examTypes">{{ exam.examTypes }}
+                    </option> -->
                   </select>
                   <span class="label">Exam Type *</span>
                   <span class="focus-bg"></span>
                 </label>
               </div>
+
               <div class="col-xl-4 col-lg-6 col-12 form-group" rows="3">
                 <label for="inp" class="inp">
-                  <input type="text" name="Description " class="form-control" id="inp" placeholder="&nbsp;">
+                    <input type="text"  name="description" class="form-control" id="inp" placeholder="&nbsp;" [(ngModel)]="examGroupDto.description"
+                      [value]="examGroupDto.description"> 
                   <span class="label">Description *</span>
                   <span class="focus-bg"></span>
                 </label>
               </div>
+
               <div class="col-12 form-group mg-t-8">
-                <button type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Save</button>&nbsp;
+                <button *ngIf="!this.isUpdate" (click)="add()" type="button"  class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark" data-toggle="modal" data-target="#myModal">Save</button>&nbsp;
+                <button *ngIf="this.isUpdate" (click)="update(examGroupDto.id)" type="button" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark"data-toggle="modal" data-target="#myModal" >Update</button>&nbsp;
+                <button *ngIf="this.isUpdate" (click)="clearData()" type="button" class="btn-fill-lg bg-blue-dark btn-hover-yellow">Resete</button>&nbsp;
+              
               </div>
 
             </div>

@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ItemstoreService {
   constructor(private http: HttpClient) { }
-  url = `http://yamistha.cloudjiffy.net/item Store/`;
+  url = `http://yamistha.cloudjiffy.net/item-Store/`;
 
   save(itemStoreDto): any {
     return this.http.post(this.url, itemStoreDto);

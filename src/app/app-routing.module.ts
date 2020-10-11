@@ -6,6 +6,7 @@ import { DownloadRoutingModule } from "./Download-Center/downloadcenter-routing.
 import { CommunicateRoutingModule } from "./Communicate/communicate-routing.module";
 import { HostelRoutingModule } from './Hostel/hostel-routing.module';
 import { InventoryRoutingModule } from "./Inventory/inventory-routing.module";
+import { SystemRoutingModule } from "./system_setting/system-routing.module";
 import { HomeworkRoutingModule } from "./Homework/homework-routing.module";
 import { TransportRoutingModule } from "./Transport/Transport-routing.module";
 import { FrontcmsRoutingModule } from "./Frontcms/Frontcms-routing.module";
@@ -28,6 +29,8 @@ import { CreateTtComponent } from "./create-tt/create-tt.component";
 import { AttendanceRoutingModule } from "./Attendance/Attendance-routing.module";
 import { Issue1Component } from "./Library/issue-return/issue1/issue1.component";
 
+import { LoginModule } from './login/login.module';
+
 const routes: Routes = [
   { path: "create", component: CreateComponent },
   { path: "create-tt", component: CreateTtComponent },
@@ -35,6 +38,7 @@ const routes: Routes = [
   { path: "addNews", component: AddNewsComponent },
   { path: "addPage", component: AddPageComponent },
   { path: "issue1", component: Issue1Component },
+
 ];
 
 @NgModule({
@@ -42,6 +46,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes, { useHash: true }),
     StudentRoutingModule,
     CommunicateRoutingModule,
+    SystemRoutingModule,
     LibraryRoutingModule,
     DownloadRoutingModule,
     InventoryRoutingModule,
@@ -61,6 +66,7 @@ const routes: Routes = [
     OnlineExamRoutingModule,
     DashboardRoutingModule,
     AttendanceRoutingModule,
+    LoginModule,
   ],
   exports: [RouterModule],
 })

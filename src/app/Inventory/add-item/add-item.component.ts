@@ -104,7 +104,7 @@ export class AddItemComponent implements OnInit {
       this.clearData();
     }, (err) => {
       console.log('Error While Saving');
-      console.error(err);
+      //console.error(err);
     });
   }
   getitemById(itemId) {

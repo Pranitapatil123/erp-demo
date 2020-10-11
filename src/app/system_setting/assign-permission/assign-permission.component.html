@@ -1,0 +1,1536 @@
+<style>
+    body {
+        height: 100vh;
+        display: grid;
+        font-family: Roboto;
+        -webkit-text-size-adjust: 100%;
+        -webkit-font-smoothing: antialiased;
+      }
+      
+      * {
+        box-sizing: border-box;
+      }
+      
+      .inp {
+        position: relative;
+        margin: auto;
+        width: 100%;
+        max-width: 280px;
+        border-radius: 3px;
+        overflow: hidden;
+      }
+      .inp .label {
+        position: absolute;
+        top: 20px;
+        left: 12px;
+        font-size: 16px;
+        color: rgba(0, 0, 0, 0.5);
+        font-weight: 500;
+        -webkit-transform-origin: 0 0;
+                transform-origin: 0 0;
+        -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+        -webkit-transition: all 0.2s ease;
+        transition: all 0.2s ease;
+        pointer-events: none;
+      }
+      .inp .focus-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: none;
+        z-index: -1;
+        -webkit-transform: scaleX(0);
+                transform: scaleX(0);
+        -webkit-transform-origin: left;
+                transform-origin: left;
+      }
+      .inp input {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+             appearance: none;
+        width: 100%;
+        border: 0;
+        font-family: inherit;
+        padding: 16px 12px 0 12px;
+        height: 45px;
+        font-size: 16px;
+        font-weight: 400;
+        background: rgba(0, 0, 0, 0);
+        box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+        color: #000;
+        -webkit-transition: all 0.15s ease;
+        transition: all 0.15s ease;
+      }
+      .inp input:hover {
+        background: rgba(0, 0, 0, 0);
+        box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+      }
+      .inp input:not(:placeholder-shown) + .label {
+        color: rgba(0, 0, 0, 0.5);
+        -webkit-transform: translate3d(0, -18px, 0) scale(0.75);
+                transform: translate3d(0, -18px, 0) scale(0.75);
+      }
+      .inp input:focus {
+        background: rgba(0, 0, 0, 0);
+        outline: none;
+        box-shadow: inset 0 -2px 0 #0077FF;
+      }
+      .inp input:focus + .label {
+        color: #0077FF;
+        -webkit-transform: translate3d(0, -18px, 0) scale(0.75);
+                transform: translate3d(0, -18px, 0) scale(0.75);
+      }
+      .inp input:focus + .label + .focus-bg {
+        -webkit-transform: scaleX(1);
+                transform: scaleX(1);
+        -webkit-transition: all 0.1s ease;
+        transition: all 0.1s ease;
+      }
+      
+    
+    /*******select box*********/
+    .slt {
+        
+        position: relative;
+        margin: auto;
+        width: 100%;
+        max-width: 280px;
+        border-radius: 3px;
+        overflow: hidden;
+      }
+      .slt .label {
+        position: absolute;
+        top: 20px;
+        left: 12px;
+        font-size: 16px;
+        color: rgba(0, 0, 0, 0.5);
+        font-weight: 500;
+        -webkit-transform-origin: 0 0;
+                transform-origin: 0 0;
+        -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+        -webkit-transition: all 0.2s ease;
+        transition: all 0.2s ease;
+        pointer-events: none;
+      }
+      .slt .focus-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0);
+        z-index: -1;
+        -webkit-transform: scaleX(0);
+                transform: scaleX(0);
+        -webkit-transform-origin: left;
+                transform-origin: left;
+      }
+      .slt select {
+        
+        -webkit-appearance: none;
+        -moz-appearance: none;
+             appearance: none;
+        width: 100%;
+        border:none;
+        font-family: inherit;
+        padding: 16px 12px 0 12px;
+        height: 45px;
+        font-size: 16px;
+        font-weight: 400;
+        background: rgba(0, 0, 0, 0);
+        box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+        color: #000;
+        -webkit-transition: all 0.15s ease;
+        transition: all 0.15s ease;
+      }
+      .slt select:hover {
+        background: rgba(0, 0, 0, 0);
+        box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+      }
+      .slt select:not(:placeholder-shown) + .label {
+        color: rgba(0, 0, 0, 0.5);
+        -webkit-transform: translate3d(0, -18px, 0) scale(0.75);
+                transform: translate3d(0, -18px, 0) scale(0.75);
+      }
+      .slt select:focus {
+        background: rgba(0, 0, 0, 0);
+        outline: none;
+        box-shadow: inset 0 -2px 0 #0077FF;
+      }
+      .slt select:focus + .label {
+        color: #0077FF;
+        -webkit-transform: translate3d(0, -18px, 0) scale(0.75);
+                transform: translate3d(0, -18px, 0) scale(0.75);
+      }
+      .slt select:focus + .label + .focus-bg {
+        -webkit-transform: scaleX(1);
+                transform: scaleX(1);
+        -webkit-transition: all 0.1s ease;
+        transition: all 0.1s ease;
+      }
+    
+    /*********datppicker****************/
+    .dtp {  
+      position: relative;
+      margin: auto;
+      width: 100%;
+      max-width: 280px;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    
+    .dtp .label {
+      position: absolute;
+      top: 20px;
+      left: 12px;
+      font-size: 16px;
+      color: rgba(0, 0, 0, 0.5);
+      font-weight: 500;
+      -webkit-transform-origin: 0 0;
+              transform-origin: 0 0;
+      -webkit-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0);
+      -webkit-transition: all 0.2s ease;
+      transition: all 0.2s ease;
+      pointer-events: none;
+    }
+    
+    .dtp .focus-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.05);
+      z-index: -1;
+      -webkit-transform: scaleX(0);
+              transform: scaleX(0);
+      -webkit-transform-origin: left;
+              transform-origin: left;
+    }
+    
+    .dtp input {  
+      -webkit-appearance: none;
+      -moz-appearance: none;
+           appearance: none;
+      width: 100%;
+      border:none;
+      font-family: inherit;
+      padding: 16px 12px 0 12px;
+      height: 45px;
+      font-size: 16px;
+      font-weight: 400;
+      background: rgba(0, 0, 0, 0);
+      box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+      color: #000;
+      -webkit-transition: all 0.15s ease;
+      transition: all 0.15s ease;
+    }
+    
+    .dtp input:hover {
+      background: rgba(0, 0, 0, 0);
+      box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+    }
+    .dtp input:not(:placeholder-shown) + .label {
+      color: rgba(0, 0, 0, 0.5);
+      -webkit-transform: translate3d(0, -18px, 0) scale(0.75);
+              transform: translate3d(0, -18px, 0) scale(0.75);
+    }
+    .dtp input:focus {
+      background: rgba(0, 0, 0, 0);
+      outline: none;
+      box-shadow: inset 0 -2px 0 #0077FF;
+    }
+    .dtp input:focus + .label {
+      color: #0077FF;
+      -webkit-transform: translate3d(0, -18px, 0) scale(0.75);
+              transform: translate3d(0, -18px, 0) scale(0.75);
+    }
+    .dtp input:focus + .label + .focus-bg {
+      -webkit-transform: scaleX(1);
+              transform: scaleX(1);
+      -webkit-transition: all 0.1s ease;
+      transition: all 0.1s ease;
+    }
+    </style>
+
+
+  
+<div class="breadcrumbs-area">
+    <ul>
+      <li>
+        <a href="index.html">Home</a>
+      </li>
+      <li>Assign Permission(Admin)</li>
+    </ul>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <div class="col-xl-12 col-12">
+    <!--<label for="dtp" class="dtp">
+      <input type="date" id="dtp" placeholder="&nbsp;" name="admission">
+      <span class="label"> Notice Date *</span>
+      <span class="focus-bg"></span>
+    </label>-->
+    <div class="card height-auto">
+        <div class="card-body">
+            
+          
+            <div class="col-xl-3 col-lg-6 col-12 form-group">
+                <div class="item-title">
+                <h5>Assign Permission(Admin)</h5>
+                </div>
+            </div>
+  
+  
+          <div class="col-xl-12 col-lg-12 col-12 form-desig">
+           
+                <div class="table-responsive">
+                    <table id="example" class="table display data-table text-nowrap cell-border">
+                        <thead>
+                        <tr>
+                                              
+                            <th>Module</th>
+                            <th>Feature</th>  
+                            <th>View</th>
+                            <th>Add</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                                                                      
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Student Information</td>
+                            <td>Student</td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                         </tr>
+                        
+                         <tr>
+                            <td></td>
+                            <td>Import Student</td>
+                           <td><input type="checkbox"></td>
+                         </tr>
+                        
+                         <tr>
+                            <td></td>
+                            <td>Student Categories</td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            
+                            
+
+                        </tr>
+                                         
+                        <tr>
+                            <td></td>
+                            <td>Student Houses</td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>Disable Student</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>Student Timeline</td>
+                            <td></td>
+                            <td><input type="checkbox"></td>
+                            <td></td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+
+                         <tr>
+                              <td></td>
+                             <td>Disable Reason</td>
+                             <td><input type="checkbox"></td>
+                             <td><input type="checkbox"></td>
+                             <td><input type="checkbox"></td>
+                             <td><input type="checkbox"></td>
+                        </tr>
+
+                                            
+                        <tr>
+                            <td>Fees Collection</td>
+                            <td>Collect Fees</td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td></td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>Fees Carry Forward</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>Fees Master</td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>Fees Group</td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>Fees Group Assign</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>Fees Type</td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>Fees Discount</td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>Fees Discount Assign</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>Search Fees Payment</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>Search Due Fees</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>Fees Reminder</td>
+                            <td><input type="checkbox"></td>
+                            <td></td>
+                            <td><input type="checkbox"></td>
+                            <td></td>
+                            
+                        </tr>
+
+                        <tr>
+                            <td>Income</td>
+                            <td>Income</td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+
+                        <tr>
+                          <td></td>
+                          <td>Income Head</td>
+                          <td><input type="checkbox"></td>
+                          <td><input type="checkbox"></td>
+                          <td><input type="checkbox"></td>
+                          <td><input type="checkbox"></td>
+                        </tr>
+
+                        <tr>
+                          <td></td>
+                          <td>Search Income</td>
+                          <td><input type="checkbox"></td>
+                          
+                         </tr>
+
+                         <tr>
+                          <td>Expense</td>
+                          <td>Expense</td>
+                          <td><input type="checkbox"></td>
+                          <td><input type="checkbox"></td>
+                          <td><input type="checkbox"></td>
+                          <td><input type="checkbox"></td>
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Expense Head</td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Search Expense</td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td>Student Attendance</td>
+                        <td>Student/Period Attendance</td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td></td>
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Attendance By Date</td>
+                        <td><input type="checkbox"></td>
+                        
+                        <td></td>
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Approve Leave</td>
+                        <td><input type="checkbox"></td>
+                        
+                        <td></td>
+                      </tr>
+
+                      <tr>
+                        <td>Examination</td>
+                        <td>Marks Grade</td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td></td>
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Exam Group</td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td></td>
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Design Admit Card</td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td></td>
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Print Admit Card</td>
+                        <td><input type="checkbox"></td>
+                       
+                        <td></td>
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Design Marksheet</td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td></td>
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Print Marksheet</td>
+                        <td><input type="checkbox"></td>
+                        
+                        <td></td>
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Exam Result</td>
+                        <td><input type="checkbox"></td>
+                       
+                        <td></td>
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Marks Import</td>
+                        <td><input type="checkbox"></td>
+                        
+                        <td></td>
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Exam</td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td></td>
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Exam Publish</td>
+                        <td><input type="checkbox"></td>
+                       
+                        <td></td>
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Link Exam</td>
+                        <td><input type="checkbox"></td>
+                        <td></td>
+                        <td><input type="checkbox"></td>
+                        <td></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Assign/ View Student</td>
+                        <td><input type="checkbox"></td>
+                        <td></td>
+                        <td><input type="checkbox"></td>
+                        <td></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Exam Subject</td>
+                        <td><input type="checkbox"></td>
+                        <td></td>
+                        <td><input type="checkbox"></td>
+                        <td></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Exam Marks</td>
+                        <td><input type="checkbox"></td>
+                        <td></td>
+                        <td><input type="checkbox"></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+
+                      <tr>
+                        <td>Academics</td>
+                        <td>Class Timetable</td>
+                        <td><input type="checkbox"></td>
+                        <td></td>
+                        <td><input type="checkbox"></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Subject</td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td></td>
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Class</td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Section</td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Promote Student</td>
+                        <td><input type="checkbox"></td>
+                        
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Assign Class Teacher</td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Teachers Timetabble</td>
+                        <td><input type="checkbox"></td>
+                       
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Subject Group</td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td></td>
+                      </tr>
+
+                      <tr>
+                        <td>Download Center</td>
+                        <td>Upload Content</td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td></td>
+                        <td><input type="checkbox"></td>
+                        <td></td>
+                      </tr>
+
+                      <tr>
+                        <td>Library</td>
+                        <td>Books List</td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Issue Return</td>
+                        <td><input type="checkbox"></td>
+                       
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Add Staff Member</td>
+                        <td><input type="checkbox"></td>
+                       
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Add Student</td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Import Book</td>
+                        <td><input type="checkbox"></td>
+                       
+                      </tr>
+
+                      <tr>
+                        <td>Inventory</td>
+                        <td>Issue Item</td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Add Item Stock</td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Add Item</td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Item Store</td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Item Supplier</td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Item Category</td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td>Transport</td>
+                        <td>Routes</td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Vehicle</td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Assign Vehicle</td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td>Hostel</td>
+                        <td>Hostel</td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Room Type</td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Hostel Rooms</td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td>Communicate</td>
+                        <td>Notice Board</td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Email</td>
+                        <td><input type="checkbox"></td>
+                       
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Email/SMS Log</td>
+                        <td><input type="checkbox"></td>
+                      
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>SMS</td>
+                        <td><input type="checkbox"></td>
+                       
+                      </tr>
+
+                      <tr>
+                        <td>Reports</td>
+                        <td>Student Report</td>
+                        <td><input type="checkbox"></td>
+                       
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Guardian Report</td>
+                        <td><input type="checkbox"></td>
+                       
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Student History</td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Student Login Credential Report</td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Class Subject Report</td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Admission Report</td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Sibling Report</td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Homework Evaluation Report</td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Student Profile</td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Fees Statement</td>
+                        <td><input type="checkbox"></td>
+                       
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Balance Fees Report</td>
+                        <td><input type="checkbox"></td>
+                       
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Fees Collection Report</td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Online Fees Collection Report</td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Income Report</td>
+                        <td><input type="checkbox"></td>
+                       
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Expense Report</td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>PayRoll Report</td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Income Group Report</td>
+                        <td><input type="checkbox"></td>
+                       
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Expense Group Report</td>
+                        <td><input type="checkbox"></td>
+                       
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Attendance Report</td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Staff Attendance Report</td>
+                        <td><input type="checkbox"></td>
+                       
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Transport Report</td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Hostel Report</td>
+                        <td><input type="checkbox"></td>
+                        
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Audit Trail Report</td>
+                        <td><input type="checkbox"></td>
+                       
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>User Log</td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Book Issue Report</td>
+                        <td><input type="checkbox"></td>
+                       
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Book Due Report</td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Book Inventory Report</td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Stock Report</td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Add Item Report</td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Issue Item Report</td>
+                        <td><input type="checkbox"></td>
+                       
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Student Attendance Type Report</td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Exam Marks Report</td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Online Exam Wise Report</td>
+                        <td><input type="checkbox"></td>
+                       
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Online Exams Report</td>
+                        <td><input type="checkbox"></td>
+                       
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Online Exams Attempt Report</td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Online Exams Rank Report</td>
+                        <td><input type="checkbox"></td>
+                       
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Staff Report</td>
+                        <td><input type="checkbox"></td>
+                       
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Student/ period Attendance Report</td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Biometric Attendance Log</td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Book Issue Return Report</td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Rank Report</td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td>System Settings</td>
+                        <td>Languages</td>
+                        <td></td>
+                        <td><input type="checkbox"></td>
+                        <td></td>
+                        <td></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>General Setting</td>
+                        <td><input type="checkbox"></td>
+                        <td></td>
+                        <td><input type="checkbox"></td>
+                        <td></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Session Setting</td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Notification Setting</td>
+                        <td><input type="checkbox"></td>
+                        <td></td>
+                        <td><input type="checkbox"></td>
+                        <td></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>SMS Setting</td>
+                        <td><input type="checkbox"></td>
+                        <td></td>
+                        <td><input type="checkbox"></td>
+                        <td></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Email Setting</td>
+                        <td><input type="checkbox"></td>
+                        <td></td>
+                        <td><input type="checkbox"></td>
+                        <td></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Front CMS Setting</td>
+                        <td><input type="checkbox"></td>
+                        <td></td>
+                        <td><input type="checkbox"></td>
+                        <td></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Payment Methods</td>
+                        <td><input type="checkbox"></td>
+                        <td></td>
+                        <td><input type="checkbox"></td>
+                        <td></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>User Status</td>
+                        <td><input type="checkbox"></td>
+                        
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Backup</td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td></td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Restore</td>
+                        <td><input type="checkbox"></td>
+                        
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Language Switcher</td>
+                        <td><input type="checkbox"></td>
+                       
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Custom Fields</td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>System Fields</td>
+                        <td><input type="checkbox"></td>
+                       
+                        
+                      </tr>
+
+                      <tr>
+                        <td>Front CMS</td>
+                        <td>Menus</td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td></td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Media Manager</td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td></td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Banner Images</td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td></td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Pages</td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Gallery</td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Event</td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>News</td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td>Front Office</td>
+                        <td>Admission Enquiry</td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Follow Up Admissin Enquiry</td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td></td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Visitor Book</td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Phone Call Log</td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Postal Dispatch</td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Postal Receive</td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Complain</td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      <tr>
+                        <td></td>
+                        <td>Setup Font Office</td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        
+                      </tr>
+
+                      
+                        </tbody>
+                    </table>
+                                  
+                            
+  
+                            
+                           
+                           
+  
+                           
+  
+                        
+  
+  
+                        
+          </div>
+        </div>
+        </div>
+        </div>
+  
+        </div>
+  
+

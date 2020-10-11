@@ -8,7 +8,7 @@ export class AdditemstockService {
 
   constructor(private http: HttpClient) { }
 
-  url = `http://yamistha.cloudjiffy.net/item stock/`;
+  url = `http://yamistha.cloudjiffy.net/item-stock/`;
 
 
   save(itemStockDto): any {

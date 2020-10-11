@@ -1,362 +1,298 @@
-        <!-- Breadcubs Area Start Here -->
-        <div class="breadcrumbs-area">
+<!-- Breadcubs Area Start Here -->
+<div class="breadcrumbs-area">
 
-            <ul>
-                <li>
-                    <a href="index.html">Home</a>
-                </li>
-                <li>Add Homework</li>
-            </ul>
-        </div>
-    <!-- Add Room Area Start Here -->
-    
-    <div class="card height-auto">
-            <div class="card-body">
-                <div class="heading-layout1">
-                    <div class="item-title">
-                        <h4>Homework List</h4>
-                    </div>
-                    <button style="  background-color: #000066; position: relative; top:0; right: 10; float: right;" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">+ Add</button>
+  <ul>
+    <li>
+      <a href="index.html">Home</a>
+    </li>
+    <li>Add Homework</li>
+  </ul>
+</div>
+<!-- Add Room Area Start Here -->
+
+<div class="card height-auto">
+  <div class="card-body">
+    <div class="heading-layout1">
+      <div class="item-title">
+        <h4>Homework List</h4>
+      </div>
+      <button style="  background-color: #000066; position: relative; top:0; right: 10; float: right;" type="button"
+        class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">+ Add</button>
+
+    </div>
+    <form class="new-added-form">
+      <div class="row">
+
+        <!--<div class="col-xl-3 col-lg-6 col-12 form-group">
+                  <label for="slt" class="slt">
+                    <select class="form-control" id="slt" placeholder="&nbsp;" [(ngModel)]="homeworkDto.classId"
+                      name="classId">
+                      <option selected>Please Select *</option>
+                      <option *ngFor="let class of this.classes" [value]="class.classses"
+                        [selected]="homeworkDto.classId == class.classses">
+                        {{ class.classses }}
+                      </option>
+                    </select>
+                    <span class="label">Class *</span>
+                    <span class="focus-bg"></span>
+                  </label>
 
                 </div>
-                <form class="new-added-form" >
-                    <div class="row">
-                                           
-                        <div class="col-xl-3 col-lg-6 col-12 form-group">
-                            <label for="slt" class="slt">
-                                <select  class="form-control" id="slt" placeholder="&nbsp;">
-                                <option selected >Please Select Class *</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="3">4</option>
-                                <option value="3">5</option>
-                                <option value="3">6</option>
-                                </select>
-                                <span class="label">Class *</span>
-                                <span class="focus-bg"></span>
-                            </label>
-                        </div>
-                        <div class="col-xl-3 col-lg-6 col-12 form-group">
-                            <label for="slt" class="slt">
-                                <select  name="section" class="form-control" id="slt" placeholder="&nbsp;">
-                                <option selected>Please Select section *</option>
-                                <option value="">select</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="3">4</option>
-                                <option value="3">5</option>
-                                <option value="3">6</option>
-                                </select>
-                                <span class="label">Section *</span>
-                                <span class="focus-bg"></span>
-                            </label>
-                        </div>
-                        <div class="col-xl-3 col-lg-6 col-12 form-group">
-                            <label for="slt" class="slt">
-                                <select   class="form-control" id="slt" placeholder="&nbsp;">
-                                    <option selected>Please Select Subject*</option>
-                                    <option value="">select</option>
-                                    <option value="">A</option>
-                              
-                                </select>
-                                <span class="label">Subject Group </span>
-                                <span class="focus-bg"></span>
-                                </label>
-                           
-                        </div>
-                        <div class="col-xl-3 col-lg-6 col-12 form-group">
-                            <label for="slt" class="slt">
-                                <select   class="form-control" id="slt" placeholder="&nbsp;">
-                                    <option selected>Please Select Subject*</option>
-                                    <option value="">select</option>
-                                    <option value="">A</option>
-                                <option value="1">B</option>
-                                <option value="2">C</option>
-                                <option value="3">D</option>
-                                </select>
-                                <span class="label">Subject</span>
-                                <span class="focus-bg"></span>
-                                </label>
-                        </div>
-                        <div class="col-xl-3 col-lg-6 col-12 form-group">
-                            <button type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Search</button>
-                        </div>
-                    </div>
-                </form>
-               <div class="table-responsive">
-                <table id="example" class="table display data-table text-nowrap cell-border">   
-                  <thead>
-                    <tr>
-                        <th>Class</th>
-                        <th>Section</th>
-                        <th>Subject Group</th>
-                        <th>Subject</th>
-                        <th>Homwork Date</th>
-                        <th>Submission Date</th>
-                        <th>Evaluation Date</th>
-                        <th>Created By</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>A</td>
-                        <td>All</td>
-                        <td>Marathi</td>
-                        <td>17/01/2020</td>
-                        <td>18/01/2020</td>
-                        <td>19/01/2020</td>
-                        <td>Super Admin</td>
-                        <td>
-                            <i class="fas fa-align-justify" data-toggle="modal" data-target="#myModal7"></i>&nbsp;
-                            <a href="#"><i class="fas fa-pen-alt text-orange-peel"></i>&nbsp;</a> 
-                            <a href="#"><i class="fas fa-times text-orange-red"></i>&nbsp;</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>A</td>
-                        <td>All</td>
-                        <td>Marathi</td>
-                        <td>17/01/2020</td>
-                        <td>18/01/2020</td>
-                        <td>19/01/2020</td>
-                        <td>Super Admin</td>
-                        <td>
-                            <i class="fas fa-align-justify" data-toggle="modal" data-target="#myModal7"></i>&nbsp;
-                            <a href="#"><i class="fas fa-pen-alt text-orange-peel"></i>&nbsp;</a> 
-                            <a href="#"><i class="fas fa-times text-orange-red"></i>&nbsp;</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>A</td>
-                        <td>All</td>
-                        <td>Marathi</td>
-                        <td>17/01/2020</td>
-                        <td>18/01/2020</td>
-                        <td>19/01/2020</td>
-                        <td>Super Admin</td>
-                        <td>
-                            <i class="fas fa-align-justify" data-toggle="modal" data-target="#myModal7"></i>&nbsp;
-                            <a href="#"><i class="fas fa-pen-alt text-orange-peel"></i>&nbsp;</a> 
-                            <a href="#"><i class="fas fa-times text-orange-red"></i>&nbsp;</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>A</td>
-                        <td>All</td>
-                        <td>Marathi</td>
-                        <td>17/01/2020</td>
-                        <td>18/01/2020</td>
-                        <td>19/01/2020</td>
-                        <td>Super Admin</td>
-                        <td>
-                            <i class="fas fa-align-justify" data-toggle="modal" data-target="#myModal7"></i>&nbsp;
-                            <a href="#"><i class="fas fa-pen-alt text-orange-peel"></i>&nbsp;</a> 
-                            <a href="#"><i class="fas fa-times text-orange-red"></i>&nbsp;</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>A</td>
-                        <td>All</td>
-                        <td>Marathi</td>
-                        <td>17/01/2020</td>
-                        <td>18/01/2020</td>
-                        <td>19/01/2020</td>
-                        <td>Super Admin</td>
-                        <td>
-                            <i class="fas fa-align-justify" data-toggle="modal" data-target="#myModal7"></i>&nbsp;
-                            <a href="#"><i class="fas fa-pen-alt text-orange-peel"></i>&nbsp;</a> 
-                            <a href="#"><i class="fas fa-times text-orange-red"></i>&nbsp;</a>
-                        </td>
-                    </tr>
-                </tbody>
-                
-            </table>
-        </div>
-</div>    
+                <div class="col-xl-3 col-lg-6 col-12 form-group">
+                  <label for="slt" class="slt">
+                    <select class="form-control" id="slt" placeholder="&nbsp;" [(ngModel)]="homeworkDto.sectionId"
+                      name="sectionId" required>
+                      <option selected>Please Select *</option>
+                      <option *ngFor="let section of this.sections" [value]="section.section"
+                        [selected]="homeworkDto.sectionId ==section.section">{{ section.section }}
+                      </option>
+                    </select>
+                    <span class="label">Section *</span>
+                    <span class="focus-bg"></span>
+                  </label>
+                </div>
+
+                 <div class="col-xl-3 col-lg-6 col-12 form-group">
+                          <label for="slt" class="slt">
+                            <select class="form-control" id="slt" placeholder="&nbsp;"
+                              [(ngModel)]="homeworkDto.sectionId" name="sectionId">
+                              <option selected>Please Select *</option>
+                              <option *ngFor="let section of this.sections" [value]="section.section"
+                                [selected]="homeworkDto.sectionId ==section.section">{{ section.section }}
+                              </option>
+                            </select>
+                            <span class="label">Subject Group *</span>
+                            <span class="focus-bg"></span>
+                          </label>
+                        </div> 
+                <div class="col-xl-3 col-lg-6 col-12 form-group">
+                  <label for="slt" class="slt">
+                    <select class="form-control" id="slt" placeholder="&nbsp;" [(ngModel)]="homeworkDto.subjectId"
+                      name="subjectId">
+                      <option selected>Please Select *</option>
+                      <option *ngFor="let subject of subjects" [value]="subject.name"
+                        [selected]="homeworkDto.subjectId ==subject.name">{{ subject.name }}
+                      </option>
+                    </select>
+                    <span class="label">Subject *</span>
+                    <span class="focus-bg"></span>
+                  </label>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-12 form-group">
+                  <button type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Search</button>
+                </div>-->
+      </div>
+    </form>
+    <div class="table-responsive">
+      <table id="example" class="table display data-table text-nowrap cell-border">
+        <thead>
+          <tr>
+            <th>Class ID</th>
+            <th>Section ID</th>
+            <th>Subject ID</th>
+            <th>Homwork Date</th>
+            <th>Submission Date</th>
+            <th>Evaluation Date</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let hw of homework">
+            <td>{{ hw.classId }}</td>
+            <td>{{ hw.sectionId }}</td>
+            <td>{{ hw.subjectId }}</td>
+            <td>{{ hw.homeworkDate }}</td>
+            <td>{{ hw.submitDate }}</td>
+            <td>{{ hw.evaluationDate }}</td>
+            <td>
+              <i class="fas fa-align-justify" a href="/#/homework-evaluation"></i>&nbsp;
+              <a (click)="setUpdateFileds(hw.id)" data-toggle="modal" data-target="#myModal"><i
+                  class="fas fa-pen-alt text-orange-peel"></i>&nbsp;</a>
+              <a (click)="deletehw(hw.id)"><i class=" fas fa-times text-orange-red"></i>&nbsp;</a>
+            </td>
+          </tr>
+
+        </tbody>
+
+      </table>
+    </div>
+  </div>
 </div>
 
 <!-- Add room Area end Here -->
 <div class="container">
-   
-    <!-- Modal -->
-    <div id="myModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                   
-                </div>
-                <div class="modal-body">
-                    <form role="form" method="post" id="reused_form" > 
-                        <div class="row">
-                                       
-                            <div class="col-xl-4 col-lg-6 col-12 form-group">
-                                <label for="slt" class="slt">
-                                    <select   class="form-control" id="slt" placeholder="&nbsp;">
-                                        <option selected>Please Select *</option>
-                                        <option value="">1</option>
-                                    <option value="1">2</option>
-                                    <option value="2">3</option>
-                                    <option value="3">4</option>
-                                    </select>
-                                    <span class="label">Class</span>
-                                    <span class="focus-bg"></span>
-                                    </label>
-                        
-                            </div>
-                            <div class="col-xl-4 col-lg-6 col-12 form-group">
-                                <label for="slt" class="slt">
-                                    <select   class="form-control" id="slt" placeholder="&nbsp;">
-                                        <option selected>Please Select Section*</option>
-                                        <option value="">select</option>
-                                        <option value="">A</option>
-                                    <option value="1">B</option>
-                                    <option value="2">C</option>
-                                    <option value="3">D</option>
-                                    </select>
-                                    <span class="label">Section</span>
-                                    <span class="focus-bg"></span>
-                                    </label>
-                            </div>
-                            <div class="col-xl-4 col-lg-6 col-12 form-group">
-                                <label for="slt" class="slt">
-                                    <select   class="form-control" id="slt" placeholder="&nbsp;">
-                                        <option selected>Please Select Subject*</option>
-                                        <option value="">select</option>
-                                        <option value="">A</option>
-                                  
-                                    </select>
-                                    <span class="label">Subject Group </span>
-                                    <span class="focus-bg"></span>
-                                    </label>
-                               
-                            </div>
-                            <div class="col-xl-4 col-lg-6 col-12 form-group">
-                                <label for="slt" class="slt">
-                                    <select   class="form-control" id="slt" placeholder="&nbsp;">
-                                        <option selected>Please Select Subject*</option>
-                                        <option value="">select</option>
-                                        <option value="">A</option>
-                                    <option value="1">B</option>
-                                    <option value="2">C</option>
-                                    <option value="3">D</option>
-                                    </select>
-                                    <span class="label">Subject</span>
-                                    <span class="focus-bg"></span>
-                                    </label>
-                           
-                            </div>
-                            
-                            <div class="col-xl-4 col-lg-6 col-12 form-group">
-                                <label for="dtp" class="dtp">
-                                    <input type="text" id="dtp" placeholder="&nbsp;" class="form-control air-datepicker"
-                                        data-position='top right' name="asondate" >
-                                    <span class="label">Homework Date *</span>
-                                    <span class="focus-bg"></span>
-                                </label>
-                                <i class="far fa-calendar-alt"></i>
-                            </div>
-        
-                            <div class="col-xl-4 col-lg-6 col-12 form-group">
-                                <label for="dtp" class="dtp">
-                                    <input type="text" id="dtp" placeholder="&nbsp;" class="form-control air-datepicker"
-                                        data-position='top right' name="asondate" >
-                                    <span class="label">Submission Date *</span>
-                                    <span class="focus-bg"></span>
-                                </label>
-                                <i class="far fa-calendar-alt"></i>
-                            </div>
-        
-                            <div class="col-xl-4 col-lg-6 col-12 form-group">
-                                <label class="text-dark-medium" style="font-size: small;">Attach Document</label>
-                                <input type="file" class="form-control-file" name="homeworkdoc" ngModel>
-                            </div>
-                            
-                            <div class="col-12 form-group mg-t-8">
-                                <button type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Save</button>&nbsp;
-                                <button type="reset" class="btn-fill-lg bg-blue-dark btn-hover-yellow">Reset</button>
-                            </div>
-                        </div>  
-                    </form>
-                </div>
-            </div>
+
+  <!-- Modal -->
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+
         </div>
+
+        <div class="modal-body">
+          <form role="form" method="post" id="reused_form">
+            <div class="row">
+
+              <div class="col-xl-3 col-lg-6 col-12 form-group">
+                <label for="slt" class="slt">
+                  <select class="form-control" id="slt" placeholder="&nbsp;" [(ngModel)]="homeworkDto.classId"
+                    name="classId">
+                    <option selected>Please Select *</option>
+                    <option *ngFor="let class of this classes" [value]="class.classses"
+                      [selected]="homeworkDto.classId == class.classses">
+                      {{ class.classses }}
+                    </option>
+                  </select>
+                  <span class="label">Class *</span>
+                  <span class="focus-bg"></span>
+                </label>
+
+              </div>
+              <div class="col-xl-3 col-lg-6 col-12 form-group">
+                <label for="slt" class="slt">
+                  <select class="form-control" id="slt" placeholder="&nbsp;" [(ngModel)]="homeworkDto.sectionId"
+                    name="sectionId">
+                    <option selected>Please Select *</option>
+                    <option *ngFor="let section of this sections" [value]="section.section"
+                      [selected]="homeworkDto.sectionId ==section.section">{{ section.section }}
+                    </option>
+                  </select>
+                  <span class="label">Section *</span>
+                  <span class="focus-bg"></span>
+                </label>
+              </div>
+
+              <div class="col-xl-3 col-lg-6 col-12 form-group">
+                <label for="slt" class="slt">
+                  <select class="form-control" id="slt" placeholder="&nbsp;" [(ngModel)]="homeworkDto.subjectId"
+                    name="subjectId">
+                    <option selected>Please Select *</option>
+                    <option *ngFor="let subject of subjects" [value]="subject.name"
+                      [selected]="homeworkDto.subjectId ==subject.name">{{ subject.name }}
+                    </option>
+                  </select>
+                  <span class="label">Subject *</span>
+                  <span class="focus-bg"></span>
+                </label>
+              </div>
+              <div class="col-xl-4 col-lg-6 col-12 form-group">
+                <label for="dtp" class="dtp">
+                  <input type="date" id="dtp" placeholder="&nbsp;" name="createDate"
+                    [(ngModel)]="homeworkDto.createDate">
+                  <span class="label">Create Date *</span>
+                  <span class="focus-bg"></span>
+                </label>
+              </div>
+              <div class="col-xl-4 col-lg-6 col-12 form-group">
+                <label for="dtp" class="dtp">
+                  <input type="date" id="dtp" placeholder="&nbsp;" name="homeworkDate"
+                    [(ngModel)]="homeworkDto.homeworkDate">
+                  <span class="label">Homework Date *</span>
+                  <span class="focus-bg"></span>
+                </label>
+              </div>
+
+              <div class="col-xl-4 col-lg-6 col-12 form-group">
+                <label for="dtp" class="dtp">
+                  <input type="date" id="dtp" placeholder="&nbsp;" name="submitDate"
+                    [(ngModel)]="homeworkDto.submitDate">
+                  <span class="label">Submission Date *</span>
+                  <span class="focus-bg"></span>
+                </label>
+              </div>
+
+              <div class="col-xl-3 col-lg-6 col-12 form-group">
+                <label class="text-dark-medium" style="font-size: small;">Attach Document</label>
+                <input type="file" class="form-control-file" name="document" placeholder="upload Homework"
+                  [(ngModel)]="homeworkDto.document" required>
+              </div>
+
+              <div class="col-xl-4 col-lg-6 col-12 form-group">
+                <button *ngIf="!this.isUpdate" (click)="addhw()" type="button"
+                  class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark" data-toggle="modal" data-target="#myModal">
+                  Save
+                </button>
+                <button *ngIf="this.isUpdate" (click)="updatehw(homeworkDto.id)" type="button"
+                  class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark" data-toggle="modal" data-target="#myModal">
+                  Update
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
 
 <div class="container">
-   
-    <!-- Modal -->
-    <div id="myModal7" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                   
-                        <h4>Evaluate List</h4>
-                    
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                   
+
+  <!-- Modal -->
+  <div id="myModal7" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+
+          <h4>Evaluate List</h4>
+
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+        </div>
+        <div class="modal-body">
+
+
+          <div class="card height-auto" style="padding: 0;">
+            <div class="row" style="margin-left: 15px;margin-bottom: 5px;">
+              <div class="card-body col-xl-8 col-lg-12 col-12 form-group">
+                <div class="item-title">
+                  <h6>Student List</h6>
                 </div>
-                <div class="modal-body">
-                    
-
-                    <div class="card height-auto" style="padding: 0;">
-                        <div class="row" style="margin-left: 15px;margin-bottom: 5px;">
-                        <div class="card-body col-xl-8 col-lg-12 col-12 form-group"  >
-                            <div class="item-title">
-                                <h6>Student List</h6>
-                            </div>
-                            <div class="col-xl-3 col-lg-6 col-12 form-group">
-                                <div class="checkbox">
-                                        <input type="checkbox" class="is_active" name="is_active" value="" autocomplete="off">&nbsp;
-
-                                                             
-                                            <b>a b (AC#5)</b>
-                                         
-                                    
-                                </div>
-                                <div class="checkbox">
-                                        <input type="checkbox" class="is_active" name="is_active" value="" autocomplete="off">&nbsp;
+                <div class="col-xl-3 col-lg-6 col-12 form-group">
+                  <div class="checkbox">
+                    <input type="checkbox" class="is_active" name="is_active" value="" autocomplete="off">&nbsp;
 
 
-                                        <b>a b (AC#5)</b>
-                                    
-                                </div>
-                                <div class="checkbox">
-                                        <input type="checkbox" class="is_active" name="is_active" value="" autocomplete="off">&nbsp;
+                    <b>a b (AC#5)</b>
 
 
-                                        <b>a b (AC#5)</b>
-                                </div>
-                            </div>
-                        </div>
-                            <div class="card-body col-xl-4 col-lg-6 col-6 form-group" style="box-sizing:border-box;margin-left: 15px;">
-                                <h6> Summary</h6>
-                                <hr>
-                                <h6>Homework Date:17/01/2020</h6><br>
-                                <h6>Homework Date:17/01/2020</h6><br> 
-                                <h6>Homework Date:17/01/2020</h6><br>
-                                <h6>Homework Date:17/01/2020</h6><br>
-                                <h6>Homework Date:17/01/2020</h6><br>
-                                <h6>Homework Date:17/01/2020</h6><br>
-                                <h6>Homework Date:17/01/2020</h6><br>
-                                <h6>Homework Date:17/01/2020</h6><br>
-                            </div>
-                        </div>
-                    </div>
+                  </div>
+                  <div class="checkbox">
+                    <input type="checkbox" class="is_active" name="is_active" value="" autocomplete="off">&nbsp;
 
-</div>
-</div>
-</div>
-</div>
+
+                    <b>a b (AC#5)</b>
+
+                  </div>
+                  <div class="checkbox">
+                    <input type="checkbox" class="is_active" name="is_active" value="" autocomplete="off">&nbsp;
+
+
+                    <b>a b (AC#5)</b>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body col-xl-4 col-lg-6 col-6 form-group"
+                style="box-sizing:border-box;margin-left: 15px;">
+                <h6> Summary</h6>
+                <hr>
+                <h6>Homework Date:17/01/2020</h6><br>
+                <h6>Homework Date:17/01/2020</h6><br>
+                <h6>Homework Date:17/01/2020</h6><br>
+                <h6>Homework Date:17/01/2020</h6><br>
+                <h6>Homework Date:17/01/2020</h6><br>
+                <h6>Homework Date:17/01/2020</h6><br>
+                <h6>Homework Date:17/01/2020</h6><br>
+                <h6>Homework Date:17/01/2020</h6><br>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

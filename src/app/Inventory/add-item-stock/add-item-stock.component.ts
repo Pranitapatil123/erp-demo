@@ -10,7 +10,7 @@ import { AdditemstockService } from './additemstock.service';
 export class AddItemStockComponent implements OnInit {
 
 
-  url = `http://yamistha.cloudjiffy.net/item issue/`;
+  url = `http://yamistha.cloudjiffy.net/item-stock/`;
 
   itemstocks = [];
   itemStockDto = {
@@ -60,7 +60,7 @@ export class AddItemStockComponent implements OnInit {
       this.clearData();
     }, (err) => {
       console.log('Error While Saving');
-      console.error(err);
+      //console.error(err);
     });
   }
   getitemstockById(itemId) {

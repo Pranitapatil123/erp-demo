@@ -1,0 +1,28 @@
+<div class="global">
+<div class="base-container">
+    <div class="header">Login</div>
+    <div class="content">
+            <div class="image">
+              
+                <img  src= "../../assets/img/figure/login.svg"alt="Login Image">
+            </div>
+            <div class="form" role="form" method="post">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" placeholder="Enter Username"  [(ngModel)]="loginRequest.username">   
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" placeholder="Enter Password" [(ngModel)]="loginRequest.password" >
+                </div>
+
+                <div class="form-group">
+                    <button type="button" class="btn"  (click)="login()">Login</button>
+                </div>
+            </div>
+           
+        </div>
+    
+</div>
+</div>

@@ -10,6 +10,7 @@ import { VisitorsPerposeService } from 'src/app/Frontoffice/setup/visitors-purpo
   styleUrls: ['./visitorbook.component.css']
 })
 export class VisitorbookComponent implements OnInit {
+  
   url = `http://yamistha.cloudjiffy.net/visitors-book/`;
 
   visitorsbook = [];

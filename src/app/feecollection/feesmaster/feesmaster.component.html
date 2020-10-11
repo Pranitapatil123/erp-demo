@@ -33,6 +33,7 @@
             <td>{{ feemaster.feeGroupId }}</td>
             <td>{{ feemaster.feetypeId }}</td>
             <td>{{ feemaster.amount }}</td>
+
             <td><a (click)="setUpdateFileds(feemaster.id)" data-toggle="modal" data-target="#myModal"><i
                   class="fas fa-pen-alt text-orange-peel"></i>&nbsp;</a>
 
@@ -63,6 +64,19 @@
         <div class="modal-body">
           <form role="form" method="post" id="reused_form">
             <div class="row">
+              <div class="col-xl-3 col-lg-6 col-12 form-group">
+                <label for="slt" class="slt">
+                  <select class="form-control" id="slt" placeholder="&nbsp;" [(ngModel)]="requestDto.sessionId"
+                    name="sessionId">
+                    <option selected>Please Select *</option>
+                    <option *ngFor="let session of this.sessions" [value]="session.session"
+                      [selected]="requestDto.sessionId == session.session">{{ session.session }}
+                    </option>
+                  </select>
+                  <span class="label">Session*</span>
+                  <span class="focus-bg"></span>
+                </label>
+              </div>
               <div class="col-xl-3 col-lg-6 col-12 form-group">
                 <label for="slt" class="slt">
                   <select class="form-control" id="slt" placeholder="&nbsp;" [(ngModel)]="requestDto.feeGroupId"

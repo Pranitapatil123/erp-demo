@@ -1,0 +1,83 @@
+<div class="breadcrumbs-area">
+  <ul>
+    <li>
+      <a href="index.html">Home</a>
+    </li>
+    <li>Session</li>
+  </ul>
+</div>
+<!-- Breadcubs Area End Here -->
+
+<div class="row gutters-20">
+  <div class="col-xl-4 col-6">
+    <div class="card height-auto">
+      <div class="card-body">
+        <div class="heading-layout1">
+          <div class="item-title">
+            <h5>Add Sessions</h5>
+          </div>
+        </div>
+        <form class="new-added-form">
+          <div class="col-xl-12 col-lg-12 col-12 form-desig">
+            <label for="inp" class="inp">
+              <input type="text" name="session" class="form-control" id="inp" placeholder="&nbsp;"
+                [(ngModel)]="sessionDto.session">
+              <span class="label">Session Name</span>
+              <span class="focus-bg"></span>
+            </label>
+
+          </div>
+          <div class="col-xl-4 col-lg-6 col-12 form-group">
+            <div class="row">
+              <button *ngIf="!this.isUpdate" (click)="addsession()" type="button"
+                class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark" data-toggle="modal" data-target="#myModal">
+                Save
+              </button>
+              <button *ngIf="this.isUpdate" (click)="updatesession(sessionDto.id)" type="button"
+                class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark" data-toggle="modal" data-target="#myModal">
+                Update
+              </button>
+              <button *ngIf="this.isUpdate" (click)="clearData()" type="button"
+                class="btn-fill-lg bg-blue-dark btn-hover-yellow" data-toggle="modal" data-target="#myModal">
+                Reset
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-8 col-6">
+    <div class="card height-auto">
+      <div class="card-body">
+
+        <div class="heading-layout1">
+          <div class="item-title">
+            <h5>Designation List</h5>
+          </div>
+        </div>
+        <div class="table-responsive">
+
+          <table id="example" style="float: right;" class="table display data-table text-nowrap cell-border">
+            <thead>
+              <tr>
+
+                <th>Session Name</th>
+                <th>Action</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let session of sessions">
+                <td>{{session.session}}</td>
+                <td><a (click)="setUpdateFileds(session.id)"><i class="fas fa-pen-alt text-orange-peel"></i>&nbsp;</a>
+                  <a (click)="deletesession(session.id)"><i class="fas fa-times text-orange-red"></i>&nbsp;</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
